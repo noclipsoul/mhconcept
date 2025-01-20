@@ -1,7 +1,8 @@
 {
   "collectionName": "components_layout_features_sections",
   "info": {
-    "displayName": "Features Section"
+    "displayName": "Features Section",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,6 +17,14 @@
       "type": "component",
       "repeatable": true,
       "component": "components.feature"
+    },
+    "bgFeatureimage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
     }
   }
 }

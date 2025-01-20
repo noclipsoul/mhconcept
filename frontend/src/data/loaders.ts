@@ -40,13 +40,42 @@ export async function getHomePageData() {
                 },
               },
             },
+            "layout.about": {
+              populate: {
+                image: {
+                  fields: ["url", "alternativeText"],
+                }
+              },
+            },
             "layout.features-section": {
               populate: {
+               
                 feature: {
                   populate: true,
                 },
+                bgFeatureimage: {
+                  fields: ["url", "id", "alternativeText"],
+                }
+                
               },
+              
+              
             },
+            "layout.contact": {
+              populate:true
+              
+              
+            },
+             "layout.partnership": {
+              populate: {
+              
+                  partners: {
+                    populate: true,
+                    
+                  },
+                 
+                }
+            }
           },
         },
       },
@@ -60,8 +89,8 @@ export async function getHomePageData() {
   
     url.search = qs.stringify({
       populate: [
-        "header.logoText",
-        "header.ctaButton",
+        "header.logo",
+        "header.headerlinks",
         "footer.logoText",
         "footer.socialLink",
       ],

@@ -14,14 +14,9 @@
         "images"
       ]
     },
-    "logoText": {
+    "headerlinks": {
       "type": "component",
-      "repeatable": false,
-      "component": "components.link"
-    },
-    "ctaButton": {
-      "type": "component",
-      "repeatable": false,
+      "repeatable": true,
       "component": "components.link"
     }
   }

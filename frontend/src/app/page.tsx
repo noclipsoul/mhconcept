@@ -2,12 +2,18 @@
 import { getHomePageData } from "@/data/loaders";
 import { HeroSection } from "@/components/custom/hero-section";
 import { FeatureSection } from "@/components/custom/FeaturesSection";
+import { About } from "@/components/custom/About";
+import { Contact } from "@/components/custom/contact";
+import { Partner } from "@/components/custom/Partners";
 
 
 
 const blockComponents = {
   "layout.hero-section": HeroSection,
+  "layout.about": About,
+  "layout.partnership": Partner,
   "layout.features-section": FeatureSection,
+  "layout.contact":Contact,
 };
 
 function blockRenderer(block: any) {

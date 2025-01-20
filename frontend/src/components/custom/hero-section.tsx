@@ -24,7 +24,6 @@ interface HeroSectionProps {
 }
 
 export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
-  console.dir(data, { depth: null });
   const { heading, subHeading, image, link } = data;
 
   return (
@@ -34,7 +33,6 @@ export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
         className="absolute inset-0 object-cover w-full h-full"
         height={1080}
         src={image.url}
-        
         width={1920}
       />
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white bg-black bg-opacity-40">

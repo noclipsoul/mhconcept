@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_layout_partnerships",
+  "info": {
+    "displayName": "partnership",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "partners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.partner"
+    }
+  }
+}
