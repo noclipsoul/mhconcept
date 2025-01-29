@@ -7,6 +7,7 @@ interface StrapiImageProps {
   height: number;
   width: number;
   className?: string;
+  onClick?: () => void | null; // Add onClick prop to interface
 }
 
 export function StrapiImage({
@@ -15,6 +16,7 @@ export function StrapiImage({
   height,
   width,
   className,
+  onClick, // Destructure onClick from props
 }: Readonly<StrapiImageProps>) {
   const imageUrl = getStrapiMedia(src);
   if (!imageUrl) return null;
@@ -26,6 +28,7 @@ export function StrapiImage({
       height={height}
       width={width}
       className={className}
+      onClick={onClick} // Pass onClick prop to Image component
     />
   );
 }

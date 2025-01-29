@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_layout_abouts",
+  "collectionName": "components_components_references",
   "info": {
-    "displayName": "About",
+    "displayName": "references",
     "description": ""
   },
   "options": {},
@@ -9,7 +9,7 @@
     "title": {
       "type": "string"
     },
-    "image": {
+    "logo": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -19,9 +19,6 @@
         "videos",
         "audios"
       ]
-    },
-    "description": {
-      "type": "blocks"
     }
   }
 }

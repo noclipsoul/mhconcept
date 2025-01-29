@@ -3,13 +3,12 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface ComponentsFeature extends Struct.ComponentSchema {
   collectionName: 'components_components_features';
   info: {
+    description: '';
     displayName: 'Feature';
   };
   attributes: {
     heading: Schema.Attribute.String;
-    icon: Schema.Attribute.Enumeration<
-      ['CLOCK_ICON', 'CHECK_ICON', 'CLOUD_ICON']
-    >;
+    icon: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     subHeading: Schema.Attribute.Text;
   };
 }
@@ -28,26 +27,41 @@ export interface ComponentsLink extends Struct.ComponentSchema {
   };
 }
 
-export interface ComponentsPartner extends Struct.ComponentSchema {
-  collectionName: 'components_components_partners';
+export interface ComponentsProject extends Struct.ComponentSchema {
+  collectionName: 'components_components_projects';
   info: {
-    description: '';
-    displayName: 'partner';
+    displayName: 'Project';
   };
   attributes: {
-    logourl: Schema.Attribute.String;
-    name: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    Description: Schema.Attribute.Blocks;
+    imgs: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ComponentsReferences extends Struct.ComponentSchema {
+  collectionName: 'components_components_references';
+  info: {
+    description: '';
+    displayName: 'references';
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
   };
 }
 
 export interface LayoutAbout extends Struct.ComponentSchema {
   collectionName: 'components_layout_abouts';
   info: {
+    description: '';
     displayName: 'About';
   };
   attributes: {
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Blocks;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     title: Schema.Attribute.String;
   };
@@ -74,7 +88,9 @@ export interface LayoutFeaturesSection extends Struct.ComponentSchema {
     displayName: 'Features Section';
   };
   attributes: {
-    bgFeatureimage: Schema.Attribute.Media<'images'>;
+    bgFeatureimage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
     description: Schema.Attribute.Text;
     feature: Schema.Attribute.Component<'components.feature', true>;
     title: Schema.Attribute.String;
@@ -119,14 +135,36 @@ export interface LayoutHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutNosReferences extends Struct.ComponentSchema {
+  collectionName: 'components_layout_nos_references';
+  info: {
+    description: '';
+    displayName: 'nos-references';
+  };
+  attributes: {
+    reference: Schema.Attribute.Component<'components.references', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface LayoutPartnership extends Struct.ComponentSchema {
   collectionName: 'components_layout_partnerships';
   info: {
     description: '';
     displayName: 'partnership';
   };
+  attributes: {};
+}
+
+export interface LayoutProjects extends Struct.ComponentSchema {
+  collectionName: 'components_layout_projects';
+  info: {
+    description: '';
+    displayName: 'Projects Section';
+  };
   attributes: {
-    partners: Schema.Attribute.Component<'components.partner', true>;
+    Projects: Schema.Attribute.Component<'components.project', true>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -135,14 +173,17 @@ declare module '@strapi/strapi' {
     export interface ComponentSchemas {
       'components.feature': ComponentsFeature;
       'components.link': ComponentsLink;
-      'components.partner': ComponentsPartner;
+      'components.project': ComponentsProject;
+      'components.references': ComponentsReferences;
       'layout.about': LayoutAbout;
       'layout.contact': LayoutContact;
       'layout.features-section': LayoutFeaturesSection;
       'layout.footer': LayoutFooter;
       'layout.header': LayoutHeader;
       'layout.hero-section': LayoutHeroSection;
+      'layout.nos-references': LayoutNosReferences;
       'layout.partnership': LayoutPartnership;
+      'layout.projects': LayoutProjects;
     }
   }
 }

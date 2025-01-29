@@ -23,10 +23,16 @@
       "components": [
         "layout.hero-section",
         "layout.features-section",
-        "layout.about",
         "layout.contact",
-        "layout.partnership"
+        "layout.about",
+        "layout.nos-references",
+        "layout.projects"
       ]
+    },
+    "SeoInformation": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
     }
   }
 }

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_projects",
+  "info": {
+    "displayName": "Projects Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "Projects": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.project"
+    }
+  }
+}

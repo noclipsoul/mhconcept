@@ -1,6 +1,4 @@
-import Link from "next/link";
-import { StrapiImage } from "@/components/custom/StrapiImage";
-
+"use-client";
 
 interface ContactProps {
   id: number;
@@ -16,11 +14,9 @@ export function Contact({ data }: { readonly data: ContactProps }) {
   const { title, description, telephone, email} = data;
 
   return (
-    <section className="relative bg-gray-50 py-16 md:py-24">
+    <section className="relative bg-gray-50 py-16 md:py-24" id="Contact">
     {/* Background Overlay */}
-    <div className="absolute inset-0">
-      <div className="bg-cover bg-center h-full w-full opacity-20" style={{ backgroundImage: "url('/path-to-bg-image.jpg')" }}></div>
-    </div>
+   
 
     <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
       {/* Section Header */}

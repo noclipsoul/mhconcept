@@ -2,30 +2,31 @@
 
 import { useState, useEffect } from "react";
 import { Carousel, CarouselItem } from "@/components/ui/carousel";
-
+import {StrapiImage} from "@/components/custom/StrapiImage";
 interface imgs{
   documentId: string;
   url: string;
   
-
+  alternativeText: string | null;
+  onClick?: (() => void) | null; // Corrected null probability handling
 }
 
-interface Partner {
+interface Reference {
   id: number;
-  name: string;
-  url: string;
-  logourl: string;
-  img:imgs[];
+  title: string;
+
+  logo:imgs;
 }
 
-interface PartnershipProps {
+interface ReferencesProps {
   id: number;
   __component: string;
-  partners: Partner[];
+  titre: string;
+  reference: Reference[];
 }
 
-export function Partner({ data }: { readonly data: PartnershipProps }) {
-  const { partners } = data;
+export function Reference({ data }: { readonly data: ReferencesProps }) {
+  const { titre,reference } = data;
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -33,18 +34,18 @@ export function Partner({ data }: { readonly data: PartnershipProps }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === partners.length - 1 ? 0 : prevIndex + 1
+        prevIndex === reference.length - 1 ? 0 : prevIndex + 1
       );
     }, 3000); // Change slide every 3 seconds
 
     return () => clearInterval(interval); // Cleanup interval on unmount
-  }, [partners.length]);
+  }, [reference.length]);
 
   return (
-    <section className="py-12 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
-          Our Partners
+    <section className="">
+      <div className="container mx-auto ">
+        <h2 className="text-3xl font-bold text-center text-gray-800 ">
+      {titre}
         </h2>
         <div className="relative overflow-hidden">
           <div
@@ -53,27 +54,32 @@ export function Partner({ data }: { readonly data: PartnershipProps }) {
               transform: `translateX(-${currentIndex * 100}%)`,
             }}
           >
-            {partners.map((partner) => ( 
+            {reference.map((refer) => ( 
               <div
-                key={partner.id}
+                key={refer.id}
                 className="flex-shrink-0 w-full px-4"
                 style={{ minWidth: "100%" }}
               >
                 <div className="flex flex-col items-center p-4 bg-white shadow-md rounded-lg">
                
                   <a
-                    href={partner.url}
+                  
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center"
                   >
-                    <img
-                      src={partner.logourl}
-                      alt={partner.name}
-                      className="h-20 mb-4 object-contain"
-                    />
+
+
+                      <StrapiImage
+                            alt={refer.logo.alternativeText ?? "no alternative text"}
+                            className="h-20 mb-4 object-contain"
+                            height={1080}
+                            src={refer.logo.url}
+                            width={1920}
+                         
+                          />
                     <h3 className="text-lg font-semibold text-gray-800">
-                      {partner.name}
+                      {refer.title}
                       
                     </h3>
                   </a>

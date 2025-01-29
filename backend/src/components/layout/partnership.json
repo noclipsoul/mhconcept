@@ -5,11 +5,5 @@
     "description": ""
   },
   "options": {},
-  "attributes": {
-    "partners": {
-      "type": "component",
-      "repeatable": true,
-      "component": "components.partner"
-    }
-  }
+  "attributes": {}
 }

@@ -1,23 +1,17 @@
 {
-  "kind": "collectionType",
-  "collectionName": "projects",
+  "collectionName": "components_components_projects",
   "info": {
-    "singularName": "project",
-    "pluralName": "projects",
     "displayName": "Project"
   },
-  "options": {
-    "draftAndPublish": true
-  },
-  "pluginOptions": {},
+  "options": {},
   "attributes": {
     "title": {
       "type": "string"
     },
-    "description": {
+    "Description": {
       "type": "blocks"
     },
-    "album": {
+    "imgs": {
       "allowedTypes": [
         "images",
         "files",

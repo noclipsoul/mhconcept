@@ -1,9 +1,23 @@
 import { StrapiImage } from "@/components/custom/StrapiImage";
+interface StrapiImage {
+  src: string;
+  alt: string;
+  height: number;
+  width: number;
+  className?: string;
+  onClick?: (() => void) | null; // Corrected null probability handling
+}
 
 interface Features {
   id: number;
   heading: string;
   subHeading: string;
+  icon: { // Changed iconn to a more descriptive type
+    id: number;
+    documentId: string;
+    url: string;
+    alternativeText: string;
+  };
 }
 
 interface Image {
@@ -24,57 +38,52 @@ interface FeaturesSectionProps {
 }
 
 export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }) {
-  const { title, description, bgFeatureimage, feature } = data;
+  const {  bgFeatureimage, feature } = data;
 
   return (
-    <header className="relative bg-gray-100">
-      {/* Background Image */}
-      <div className="absolute inset-0">
+    <header className=" relative flex-auto " id="services">
+    
+
+     
+      <div className="relative z-50 mx-auto max-w-full px-4 py-16 sm:px-6 lg:px-8">
+       
+        <div className="object-center mb-32">
+        <h2 className="mt-2 text-4xl text-center font-bold text-black">Que pouvons-nous offrir ?</h2>
+        </div>
+      
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+          {feature.map((feature, index) => (
+            
+              <div key={feature.id} className="  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">      
+                 <div className="flex items-center mt-10 justify-center">
+                  <StrapiImage   src={feature.icon.url} alt={feature.icon.alternativeText ?? "no alternative text"} width={80} height={80} />
+                  </div>
+            <div className="p-5">
+                         
+                    <h5 className="mb-2 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{feature.heading}</h5>
+               
+                <p className="mb-3 font-normal text-center text-gray-700 dark:text-gray-400">{feature.subHeading}</p>
+                
+            </div> 
+          </div>
+          ))}
+        </div>
+      </div>
+      <div className="absolute inset-0 overflow-hidden mb-40">
         <StrapiImage
-          className="w-full h-full object-cover"
+          className="w-full h-70  "
           src={bgFeatureimage.url}
           alt={bgFeatureimage.alternativeText ?? "no alternative text"}
           width={1900}
           height={1900}
+         
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      
       </div>
+      
 
-      {/* Content */}
-      <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-        
 
-        {/* Section Subtitle */}
-        <h2 className="text-3xl font-bold text-white mb-8">Que pouvons-nous offrir ?</h2>
 
-        {/* Features Grid */}
-        <div className="grid gap-8 md:grid-cols-3">
-          {feature.map((feature, index) => (
-            <div
-              key={feature.id}
-              className="flex flex-col items-center text-center p-8 bg-white shadow-lg rounded-lg transition-transform transform hover:scale-105"
-            >
-              {/* Icon */}
-              <img
-                src={`/icons/feature-icon-${index + 1}.svg`} // Adjust icon paths dynamically
-                alt={feature.heading}
-                className="w-12 h-12 mb-6"
-              />
-
-              {/* Heading */}
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">{feature.heading}</h3>
-
-              {/* Subheading */}
-              <p className="text-gray-600 text-base">{feature.subHeading}</p>
-
-              {/* Button */}
-              <button className="mt-4 text-blue-600 font-semibold hover:underline">
-                MH Consept
-              </button>
-            </div>
-          ))}
-        </div>
-      </div>
     </header>
   );
 }

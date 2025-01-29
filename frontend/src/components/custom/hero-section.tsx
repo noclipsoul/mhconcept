@@ -27,7 +27,7 @@ export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
   const { heading, subHeading, image, link } = data;
 
   return (
-    <header className="relative h-[600px] overflow-hidden">
+    <header className="relative h-screen overflow-hidden" id="">
       <StrapiImage
         alt={image.alternativeText ?? "no alternative text"}
         className="absolute inset-0 object-cover w-full h-full"

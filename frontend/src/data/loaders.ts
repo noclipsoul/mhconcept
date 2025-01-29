@@ -1,5 +1,6 @@
 import qs from "qs";
 import { getStrapiURL } from "@/lib/utils";
+import { tree } from "next/dist/build/templates/app-page";
 
 const baseUrl = getStrapiURL();
 
@@ -44,38 +45,41 @@ export async function getHomePageData() {
               populate: {
                 image: {
                   fields: ["url", "alternativeText"],
-                }
+                },
+              
+               
               },
             },
             "layout.features-section": {
               populate: {
-               
                 feature: {
-                  populate: true,
-                },
-                bgFeatureimage: {
-                  fields: ["url", "id", "alternativeText"],
+                  populate: '*'
                 }
-                
-              },
-              
-              
+                ,
+              bgFeatureimage: {
+                 fields: ["url", "id", "alternativeText"],
+                }
+              }
             },
             "layout.contact": {
               populate:true
-              
-              
             },
-             "layout.partnership": {
+            "layout.projects": {
               populate: {
-              
-                  partners: {
-                    populate: true,
-                    
-                  },
-                 
+                fields:["title"],
+                Projects: { 
+                  populate: '*' 
                 }
+              }
+            },
+           "layout.nos-references": { 
+            populate: {
+              fields:["title"],
+              reference: { 
+                populate: '*' 
+              }
             }
+          }
           },
         },
       },
