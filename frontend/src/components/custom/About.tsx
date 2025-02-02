@@ -72,7 +72,7 @@ export function About({ data }: { readonly data: AboutProps }) {
   };
 
   return (
-    <section className="container ml-auto mr-auto  object-center  py-16 md:py-24">
+    <section className="container mx-auto ml-auto mr-auto  object-center  py-16 md:py-24">
       <div className=" mx-auto px-10 sm:px-6 lg:px-100 flex flex-col md:flex-row items-center">
         {/* Image Section */}
         <div className="flex-shrink-0 w-1000 h-1000 overflow-hidden rounded-full shadow-lg md:w-80 md:h-80  ">

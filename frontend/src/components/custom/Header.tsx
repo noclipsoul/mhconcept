@@ -93,7 +93,7 @@ export function Header({ data }: Readonly<HeaderProps>) {
           <a href="/"  className="text-white hover:text-gray-300">Accuile</a>   
           <a href="#services"  onClick={handleServiceClick} className="text-white hover:text-gray-300">Services</a>
           
-          <a href="#Projets"  className="text-white hover:text-gray-300">Projets</a>   
+          <a href="#Projets" onClick={handleServiceClick} className="text-white hover:text-gray-300">Projets</a>   
           {headerlinks.map((hlinks) => (
             <Link
               key={hlinks.id}
@@ -115,7 +115,7 @@ export function Header({ data }: Readonly<HeaderProps>) {
            <a href="/"  className="text-white hover:text-gray-300">Accuile</a>   <br></br>
           <a href="#services"  className="text-white hover:text-gray-300" onClick={handleServiceClick}>Services</a>
           <br></br>
-          <a href="#Projets"  className="text-white hover:text-gray-300">Projets</a>   
+          <a href="#Projets" onClick={handleServiceClick}  className="text-white hover:text-gray-300">Projets</a>   
           {headerlinks.map((hlinks) => (
             <Link
               key={hlinks.id}

@@ -14,19 +14,19 @@ export function Contact({ data }: { readonly data: ContactProps }) {
   const { title, description, telephone, email} = data;
 
   return (
-    <section className="relative bg-gray-50 py-16 md:py-24" id="Contact">
+    <section className="relative  object-center container mx-auto py-16 md:py-24 items-center "  id="Contact">
     {/* Background Overlay */}
    
 
-    <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
       {/* Section Header */}
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-800 md:text-5xl">{title}</h2>
-        <p className="mt-4 text-lg text-gray-600 md:text-xl">{description}</p>
+      <div className="container mb-12">
+        <h4 className="text-4xl font-bold text-gray-800 md:text-5xl">{title}</h4>
+        <p className="mt-4 text-lg  text-justify  text-gray-600 md:text-xl">{description}</p>
       </div>
 
       {/* Contact Info */}
-      <div className="flex flex-col items-center justify-center gap-8 md:flex-row">
+      <div className="flex flex-col  gap-8 md:flex-row">
         {/* Telephone */}
         <div className="flex items-center gap-4">
           <div className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full">
@@ -52,7 +52,7 @@ export function Contact({ data }: { readonly data: ContactProps }) {
         </div>
 
         {/* Email */}
-        <div className="flex items-center gap-4">
+        <div className="flex col-end-auto items-center gap-4">
           <div className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full">
             <svg
               xmlns="http://www.w3.org/2000/svg"

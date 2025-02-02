@@ -12,6 +12,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { Fullscreen } from "lucide-react";
 
 interface RichTextElement {
   type: string; 
@@ -57,8 +58,8 @@ export function Project({ data }: { readonly data: ProjectProps }) {
 
 
   return (
-    <header className="relative flex-auto mx-auto max-w-fit" >
-      <div className="relative  mx-auto  px-4 py-16 sm:px-6 lg:px-8">
+    <header className=" container mx-auto " id="Projets">
+      <div className="relative   px-4 py-16 sm:px-6 lg:px-8">
         <div className="object-center mb-32">
           <h2 className="mt-2 text-4xl text-center font-bold text-black">
             Nos Projets
@@ -72,21 +73,19 @@ export function Project({ data }: { readonly data: ProjectProps }) {
               className="bg-white  border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
             >
               <div >
-                <Dialog>
-                  <DialogTrigger>
-                    <div className="flex items-center justify-center">
-                      {project.imgs.length > 0 && (
+                <Dialog >
+                <DialogTrigger>
+                    {project.imgs.length > 0 && (
+                      <div className="relative aspect-square overflow-hidden"> {/* Aspect ratio and overflow */}
                         <StrapiImage
                           src={project.imgs[0].url}
                           alt={project.imgs[0].alternativeText || "Thumbnail"}
-                          width={1024}
-                          height={1024}
-                          className="cursor-pointer rounded"
-               
+                          width={512} // Adjust as needed
+                          height={512} // Adjust as needed
+                          className="object-cover w-full h-full cursor-pointer rounded" // object-cover
                         />
-                      )}
-                    </div>
-
+                      </div>
+                    )}
                   </DialogTrigger>
 
                   <DialogContent  className="max-h-full max-w-full ">

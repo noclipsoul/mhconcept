@@ -41,7 +41,7 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
   const {  bgFeatureimage, feature } = data;
 
   return (
-    <header className=" relative flex-auto " id="services">
+    <header className=" relative flex-auto container mx-auto" id="services">
     
 
      
