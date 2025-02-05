@@ -1,23 +1,11 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
-
 import { StrapiImage } from "@/components/custom/StrapiImage";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Fullscreen } from "lucide-react";
-
 interface RichTextElement {
-  type: string; 
+  type: string;
   level: number;
-
   children: {
     text: string;
     bold?: boolean;
@@ -51,123 +39,126 @@ interface ProjectProps {
   image: ImageProps;
 }
 
+const RichTextRenderer = ({ elements }: { elements: RichTextElement[] }) => (
+  <div>
+    {elements.map((element, index) => (
+      <div key={index} className="mb-2">
+        {element.children.map((child, childIndex) => (
+          <span
+            key={childIndex}
+            className={`${child.bold ? "font-bold" : ""} ${child.italic ? "italic" : ""} ${child.underline ? "underline" : ""} ${child.strikethrough ? "line-through" : ""} ${child.code ? "font-mono bg-gray-100 p-1 rounded" : ""}`}
+          >
+            {child.text}
+          </span>
+        ))}
+      </div>
+    ))}
+  </div>
+);
+
 export function Project({ data }: { readonly data: ProjectProps }) {
   const { Projects } = data;
+  const [selectedProject, setSelectedProject] = useState<Projects | null>(null);
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const [popupImage, setPopupImage] = useState<ImageProps | null>(null);
-  
 
+
+  const openDialog = (project: Projects) => {
+    setSelectedProject(project);
+    setPopupImage(project.imgs[0]); // Set initial popup image
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
+
+  const closeDialog = () => {
+    setSelectedProject(null);
+    setPopupImage(null);
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
+
+  const handleThumbnailClick = (image: ImageProps) => {
+    setPopupImage(image);
+  };
 
   return (
-    <header className=" container mx-auto " id="Projets">
-      <div className="relative   px-4 py-16 sm:px-6 lg:px-8">
+    <header className="container mx-auto" id="Projets">
+      <div className="relative px-4 py-16 sm:px-6 lg:px-8">
         <div className="object-center mb-32">
           <h2 className="mt-2 text-4xl text-center font-bold text-black">
             Nos Projets
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-3 ">
+        <div className="grid lg:grid-cols-5 gap-8 lg:gap-3">
           {Projects.map((project) => (
             <div
               key={project.id}
-              className="bg-white  border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+              className="bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
             >
-              <div >
-                <Dialog >
-                <DialogTrigger>
-                    {project.imgs.length > 0 && (
-                      <div className="relative aspect-square overflow-hidden"> {/* Aspect ratio and overflow */}
-                        <StrapiImage
-                          src={project.imgs[0].url}
-                          alt={project.imgs[0].alternativeText || "Thumbnail"}
-                          width={512} // Adjust as needed
-                          height={512} // Adjust as needed
-                          className="object-cover w-full h-full cursor-pointer rounded" // object-cover
-                        />
-                      </div>
-                    )}
-                  </DialogTrigger>
-
-                  <DialogContent  className="max-h-full max-w-full ">
-       
-                    {/* Left Section: Larger Image */}
-                    
-                    <div className="grid grid-cols-2  mt-4 gap-2 ">
-                      <StrapiImage
-                        src={popupImage?.url || project.imgs[0].url} // Display the selected image or default to the first image
-                        alt={popupImage?.alternativeText || "Project Image"}
-                        width={1024}
-                        height={1024}
-                        className="w-full h-auto rounded shadow-lg  "
-                      />
-                        {/* Right Section: Project Details */}
-                      <DialogHeader >
-                            <DialogTitle className="content-center text-center">
-                            <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                {project.title}
-                            </h5>
-                            </DialogTitle>
-                            <DialogDescription className="content-center text-center">
-                            <div className="mb-4 text-gray-700 dark:text-gray-400">
-                                {project.Description.map((element, index) => (
-                                <div key={index} className="mb-2">
-                                    {element.children.map((child, childIndex) => (
-                                    <span
-                                        key={childIndex}
-                                        className={`${child.bold ? "font-bold" : ""} ${
-                                        child.italic ? "italic" : ""
-                                        } ${child.underline ? "underline" : ""} ${
-                                        child.strikethrough ? "line-through" : ""
-                                        } ${
-                                        child.code
-                                            ? "font-mono bg-gray-100 p-1 rounded"
-                                            : ""
-                                        }`}
-                                    >
-                                        {child.text}
-                                    </span>
-                                    ))}
-                                </div>
-                                ))}
-                            </div>
-                            </DialogDescription>
-                        </DialogHeader>
-                      
-                      
-                        {/* Thumbnail Images */}
-                        <div className="mt-6 grid grid-cols-4 gap-4">
-                    {project.imgs.map((img) => (
-                      <StrapiImage
-                        key={img.id}
-                        src={img.url}
-                        alt={img.alternativeText || "Thumbnail"}
-                        width={512}
-                        height={512}
-                        className={`cursor-pointer rounded border ${
-                          popupImage?.id === img.id
-                            ? "border-blue-500"
-                            : "border-transparent"
-                        }`}
-                        onClick={() => setPopupImage(img)} // Update the larger image when clicked
-                      />
-                    ))}
-                    </div>
-                          
-                      
-                    </div>
-
-
-
-                </DialogContent>
-                                </Dialog>
-              </div>
+              <button onClick={() => openDialog(project)}>
+                {project.imgs.length > 0 && (
+                  <div className="relative aspect-square overflow-hidden">
+                    <StrapiImage
+                      src={project.imgs[0].url}
+                      alt={project.imgs[0].alternativeText || "Thumbnail"}
+                      width={512}
+                      height={512}
+                      className="object-cover w-full h-full cursor-pointer rounded"
+                    />
+                  </div>
+                )}
+              </button>
             </div>
           ))}
         </div>
       </div>
 
-      
-      
+      <dialog ref={dialogRef} className="">
+        {selectedProject && (
+          <div className="p-4"> {/* Add padding to the dialog content */}
+            <div className="grid grid-cols-3  gap-4">
+              <div className="col-span-2">
+              <StrapiImage
+                src={popupImage?.url || selectedProject.imgs[0].url}
+                alt={popupImage?.alternativeText || selectedProject.title}
+                width={1024}
+                height={1024}
+                className="w-fit h-fit  object-contain rounded shadow-lg"
+              />
+              <div className="mt-4 grid grid-cols-4 gap-4">
+                  {selectedProject.imgs.map((img) => (
+                    <StrapiImage
+                      key={img.id}
+                      src={img.url}
+                      alt={img.alternativeText || "Thumbnail"}
+                      width={256}
+                      height={256}
+                      className={`cursor-pointer rounded border ${popupImage?.id === img.id ? "border-blue-500" : "border-transparent"}`}
+                      onClick={() => handleThumbnailClick(img)}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="col-span-1 text-center">
+                
+                <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                  {selectedProject.title}
+                </h2>
+                <div className="mb-4 text-gray-700 dark:text-gray-400">
+                  <RichTextRenderer elements={selectedProject.Description} />
+                </div>
+                
+              </div>
+            </div>
+            <button onClick={closeDialog} className="absolute top-4 right-4">
+              Close
+            </button>
+          </div>
+        )}
+      </dialog>
     </header>
   );
 }

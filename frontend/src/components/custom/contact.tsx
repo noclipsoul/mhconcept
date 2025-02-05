@@ -1,81 +1,46 @@
 "use-client";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelopeOpen, faPhone } from "@fortawesome/free-solid-svg-icons";
+
 interface ContactProps {
   id: number;
   documentId: string;
   __component: string;
   title: string;
   description: string;
-   telephone: string,
-   email: string
+  telephone: string;
+  email: string;
 }
 
 export function Contact({ data }: { readonly data: ContactProps }) {
-  const { title, description, telephone, email} = data;
+  const { title, description, telephone, email } = data;
 
   return (
-    <section className="relative  object-center container mx-auto py-16 md:py-24 items-center "  id="Contact">
-    {/* Background Overlay */}
-   
-
-    <div className="relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-      {/* Section Header */}
-      <div className="container mb-12">
-        <h4 className="text-4xl font-bold text-gray-800 md:text-5xl">{title}</h4>
-        <p className="mt-4 text-lg  text-justify  text-gray-600 md:text-xl">{description}</p>
-      </div>
-
-      {/* Contact Info */}
-      <div className="flex flex-col  gap-8 md:flex-row">
-        {/* Telephone */}
-        <div className="flex items-center gap-4">
-          <div className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 text-gray-800"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 10l1.664 1.664a12.05 12.05 0 006.672 6.672L14 21l7-7-1.664-1.664a12.05 12.05 0 00-6.672-6.672L10 3l-7 7z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold text-gray-800">Phone</h3>
-            <p className="text-gray-600">{telephone}</p>
-          </div>
+    <section className="py-16 px-16 items-center sm:px-6 md:px-8 lg:w-full xl:px-20 2xl:px-24" id="Contact">
+      <div className=" space-y-12"> {/* Added max-w-7xl for larger screens */}
+        <div className="space-y-8 text-center md:text-left"> {/* Text alignment adjusted */}
+          <h2 className="text-sm uppercase tracking-wider text-gray-600">Contact</h2>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-light">{title}</h1> {/* Adjusted font size */}
+          <p className="text-gray-600 max-w-3xl text-lg leading-relaxed mx-auto md:mx-0"> {/* Added mx-auto for centering on smaller screens */}
+            {description}
+          </p>
         </div>
 
-        {/* Email */}
-        <div className="flex col-end-auto items-center gap-4">
-          <div className="flex items-center justify-center w-16 h-16 bg-gray-100 rounded-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-8 w-8 text-gray-800"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M16 12h2a2 2 0 002-2V6a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M8 12H6a2 2 0 01-2-2V6a2 2 0 012-2h4a2 2 0 012 2v2m4 0h-4m4 0H8m0 4v4m0 0v4m0-4h4m0 0h4"
-              />
-            </svg>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-12 pt-8"> {/* Adjusted grid responsiveness */}
+          <div className="space-y-4">
+            <FontAwesomeIcon icon={faPhone} size="2x" className="mx-auto md:mx-0" /> {/* Centered icon on smaller screens */}
+            <h3 className="uppercase text-sm tracking-wider text-gray-600">Tel</h3>
+            <p className="text-lg text-gray-600">{telephone}</p>
           </div>
-          <div>
-            <h3 className="text-xl font-semibold text-gray-800">Email</h3>
-            <p className="text-gray-600">{email}</p>
+
+          <div className="space-y-4">
+            <FontAwesomeIcon icon={faEnvelopeOpen} size="2x" className="mx-auto md:mx-0" /> {/* Centered icon on smaller screens */}
+            <h3 className="uppercase text-sm tracking-wider text-gray-600">Email</h3>
+            <p className="text-lg text-gray-600">{email}</p>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 }

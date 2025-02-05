@@ -41,49 +41,52 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
   const {  bgFeatureimage, feature } = data;
 
   return (
-    <header className=" relative flex-auto container mx-auto" id="services">
-    
-
-     
-      <div className="relative z-50 mx-auto max-w-full px-4 py-16 sm:px-6 lg:px-8">
-       
-        <div className="object-center mb-32">
-        <h2 className="mt-2 text-4xl text-center font-bold text-black">Que pouvons-nous offrir ?</h2>
-        </div>
-      
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
-          {feature.map((feature, index) => (
-            
-              <div key={feature.id} className="  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">      
-                 <div className="flex items-center mt-10 justify-center">
-                  <StrapiImage   src={feature.icon.url} alt={feature.icon.alternativeText ?? "no alternative text"} width={80} height={80} />
-                  </div>
-            <div className="p-5">
-                         
-                    <h5 className="mb-2 text-center text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{feature.heading}</h5>
-               
-                <p className="mb-3 font-normal text-center text-gray-700 dark:text-gray-400">{feature.subHeading}</p>
-                
-            </div> 
-          </div>
-          ))}
-        </div>
-      </div>
-      <div className="absolute inset-0 overflow-hidden mb-40">
+    <header className="relative min-h-screen" id="services">
+      <div className="absolute inset-0 z-0">
         <StrapiImage
-          className="w-full h-70  "
+          className="w-full h-full object-cover" // Use object-cover for background image
           src={bgFeatureimage.url}
           alt={bgFeatureimage.alternativeText ?? "no alternative text"}
           width={1900}
           height={1900}
-         
         />
-      
+        <div className="absolute inset-0 bg-black/30" />
       </div>
-      
 
+      <div className="relative z-10 max-w-fit mx-auto px-4 py-16 sm:py-24 lg:py-32"> {/* Responsive padding */}
+        <div className="space-y-16">
+          <div className="text-center lg:text-left"> {/* Center text on smaller screens */}
+            <h2 className="text-sm uppercase tracking-wider text-white mb-4">
+              SERVICES
+            </h2>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white"> {/* Responsive font size */}
+              Que pouvons-nous offrir.
+            </h1>
+          </div>
 
-
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12"> {/* Responsive grid */}
+            {feature.map((featureItem) => ( // Renamed feature to featureItem to avoid naming conflict
+              <div key={featureItem.id} className="bg-white p-6 sm:p-8 flex flex-col items-center text-center space-y-6 rounded-lg shadow-md"> {/* Added rounded corners and shadow */}
+                <div className="w-16 h-16 sm:w-20 sm:h-20"> {/* Responsive icon size */}
+                  <StrapiImage
+                    src={featureItem.icon.url}
+                    alt={featureItem.icon.alternativeText ?? "no alternative text"}
+                    width={80}
+                    height={80}
+                    className="object-contain" // Added object-contain for icon images
+                  />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold"> {/* Responsive heading size */}
+                  {featureItem.heading}
+                </h3>
+                <p className="text-gray-600">
+                  {featureItem.subHeading}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </header>
   );
 }
