@@ -15,7 +15,7 @@ export default () => ({
       providerOptions: {
         host: 'mail.mhconcept.tn',
         port: 587,
-        secure: false,
+        secure: true,
         auth: {
           user: 'admin@mhconcept.tn',
           pass: 'MpHfxHDgew',
