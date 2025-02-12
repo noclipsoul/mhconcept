@@ -11,9 +11,12 @@ ENV NODE_ENV=${NODE_ENV}
 WORKDIR /opt/
 
 # Copy package files and install dependencies
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json ./ 
 RUN npm install -g node-gyp
-RUN  npm install
+RUN npm install
+
+# Set the max heap size for Node.js (in this case, 2 GB)
+ENV NODE_OPTIONS="--max-old-space-size=2048"
 
 # Set PATH
 ENV PATH=/opt/node_modules/.bin:$PATH
