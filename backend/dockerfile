@@ -1,39 +1,23 @@
+# Use a compatible Node.js version for Strapi
 FROM node:20-alpine
 
-# Installing necessary packages
-RUN apk update && apk add --no-cache build-base gcc autoconf automake zlib-dev libpng-dev nasm bash vips-dev git
-
-# Set environment variable
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
-
 # Set working directory
-WORKDIR /opt/
+WORKDIR /usr/src/app
 
-# Copy package files and install dependencies
-COPY package.json package-lock.json ./ 
+# Copy package files
+COPY package.json package-lock.json ./
+
+# Install global dependencies (if needed)
 RUN npm install -g node-gyp
+
+# Install project dependencies
 RUN npm install
 
-# Set the max heap size for Node.js (in this case, 2 GB)
-ENV NODE_OPTIONS="--max-old-space-size=2048"
-
-# Set PATH
-ENV PATH=/opt/node_modules/.bin:$PATH
-
-# Copy application files
-WORKDIR /opt/app
+# Copy the rest of the application code
 COPY . .
 
-# Set permissions
-RUN chown -R node:node /opt/app
-USER node
+# Expose the application port (default Strapi port is 1337)
+EXPOSE 1338
 
-# Build application
-RUN npm run build
-
-# Expose port
-EXPOSE 1337
-
-# Command to run the application
+# Start Strapi application
 CMD ["npm", "run", "develop"]

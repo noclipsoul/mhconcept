@@ -17,8 +17,9 @@ interface FooterProps {
   data: {
     logoText: {
       id: number
-      text: string
       url: string
+      text: string
+      icon:Image;
     }
     text: string
     socialLink: Slinks[]
@@ -49,8 +50,13 @@ export function Footer({ data }: Readonly<FooterProps>) {
           
           {/* Left Section - Logo and Description */}
           <div className="flex flex-col items-start">
-            <Logo />
-    
+          <StrapiImage
+       alt={logoText.icon.alternativeText ?? "no alternative text"}
+       className="w-[103.68] h-[72]  "
+       height={72}
+       src={logoText.icon.url}
+       width={103.68}
+       />
           </div>
 
           {/* Right Section - Contact Information */}

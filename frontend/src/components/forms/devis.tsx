@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import qs from "qs";
+import { getStrapiURL } from "@/lib/utils";
 
 export function DevisForm() {
   const [formData, setFormData] = useState({
@@ -13,8 +15,12 @@ export function DevisForm() {
 
   const [message, setMessage] = useState("");
 
+  const baseUrl = getStrapiURL();
+
   // Handle input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -23,8 +29,10 @@ export function DevisForm() {
     e.preventDefault();
     setMessage("");
 
+    const url = new URL("/api/devislists", baseUrl);
+
     try {
-      const response = await fetch("https://backoffice.mhconcept.tn/api/devislists", { // Ensure you use the production URL, not localhost
+      const response = await fetch(url.href, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,9 +52,12 @@ export function DevisForm() {
         setMessage("Demande envoyée avec succès !");
         setFormData({ fullName: "", phone: "", email: "", serviceOption: "", description: "" });
       } else {
+        const errorData = await response.json();
+        console.error("Server Error:", errorData);
         setMessage("Erreur lors de l'envoi du formulaire.");
       }
     } catch (error) {
+      console.error("Connection Error:", error);
       setMessage("Erreur de connexion au serveur.");
     }
   };
@@ -61,7 +72,9 @@ export function DevisForm() {
         <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Full Name */}
           <div>
-            <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">Nom Complet</label>
+            <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
+              Nom Complet
+            </label>
             <input
               id="fullName"
               name="fullName"
@@ -75,7 +88,9 @@ export function DevisForm() {
 
           {/* Phone */}
           <div>
-            <label htmlFor="phone" className="block text-sm font-medium text-gray-700">Téléphone</label>
+            <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+              Téléphone
+            </label>
             <input
               id="phone"
               name="phone"
@@ -89,7 +104,9 @@ export function DevisForm() {
 
           {/* Email */}
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+              Email
+            </label>
             <input
               id="email"
               name="email"
@@ -103,7 +120,9 @@ export function DevisForm() {
 
           {/* Service Option */}
           <div>
-            <label htmlFor="serviceOption" className="block text-sm font-medium text-gray-700">Choisissez une option</label>
+            <label htmlFor="serviceOption" className="block text-sm font-medium text-gray-700">
+              Choisissez une option
+            </label>
             <select
               id="serviceOption"
               name="serviceOption"
@@ -123,7 +142,9 @@ export function DevisForm() {
 
           {/* Description */}
           <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+              Description
+            </label>
             <textarea
               id="description"
               name="description"

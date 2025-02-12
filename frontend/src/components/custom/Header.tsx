@@ -5,24 +5,29 @@ import Link from "next/link";
 import { useRouter } from 'next/navigation'; 
 import { Logo } from "@/components/custom/logo";
 import { usePathname } from 'next/navigation'; 
+import { StrapiImage } from "./StrapiImage";
 
 interface hlinks {
   id: number;
   text: string;
   url: string;
 }
+interface Image {
+  id: number;
+  documentId: string;
+  url: string;
+  alternativeText: string | null;
+}
 
 interface HeaderProps {
   data: {
-    logo: {
-      url: string;
-    };
+    logo: Image;
     headerlinks: hlinks[];
   };
 }
 
 export function Header({ data }: Readonly<HeaderProps>) {
-  const { headerlinks } = data;
+  const {logo, headerlinks } = data;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname(); 
   const [isScrolled, setIsScrolled] = useState(false); 
@@ -67,7 +72,13 @@ export function Header({ data }: Readonly<HeaderProps>) {
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <Logo />
+       <StrapiImage
+       alt={logo.alternativeText ?? "no alternative text"}
+       className="w-[103.68] h-[72]  "
+       height={72}
+       src={logo.url}
+       width={103.68}
+       />
         {/* Mobile menu toggle button (hidden on md and larger screens) */}
         <button
           className="md:hidden focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"

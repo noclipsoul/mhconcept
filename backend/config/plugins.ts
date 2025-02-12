@@ -17,13 +17,13 @@ export default () => ({
         port: 587,
         secure: false,
         auth: {
-          user: 'contact@mhconcept.tn',
-          pass: 'qiENP5ijQL',
+          user: 'admin@mhconcept.tn',
+          pass: 'MpHfxHDgew',
         },
       },
       settings: {
-        defaultFrom: 'contact@mhconcept.tn',
-        defaultReplyTo: 'contact@mhconcept.tn',
+        defaultFrom: 'admin@mhconcept.tn',
+        defaultReplyTo: 'admin@mhconcept.tn',
       },
     },
   },
