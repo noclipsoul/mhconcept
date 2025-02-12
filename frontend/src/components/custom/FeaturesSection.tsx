@@ -1,4 +1,5 @@
 import { StrapiImage } from "@/components/custom/StrapiImage";
+import swiper from "swiper"
 interface StrapiImage {
   src: string;
   alt: string;
@@ -41,7 +42,7 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
   const {  bgFeatureimage, feature } = data;
 
   return (
-    <header className="relative min-h-screen" id="services">
+    <header className="relative  font-sans min-h-screen" id="services">
       <div className="absolute inset-0 z-0">
         <StrapiImage
           className="w-full h-full object-cover" // Use object-cover for background image
@@ -64,7 +65,7 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-12"> {/* Responsive grid */}
+          <div className="container w-full grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"> {/* Responsive grid */}
             {feature.map((featureItem) => ( // Renamed feature to featureItem to avoid naming conflict
               <div key={featureItem.id} className="bg-white p-6 sm:p-8 flex flex-col items-center text-center space-y-6 rounded-lg shadow-md"> {/* Added rounded corners and shadow */}
                 <div className="w-16 h-16 sm:w-20 sm:h-20"> {/* Responsive icon size */}
@@ -76,10 +77,10 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
                     className="object-contain" // Added object-contain for icon images
                   />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold"> {/* Responsive heading size */}
+                <h3 className="text-xl font-sans font-semibold"> {/* Responsive heading size */}
                   {featureItem.heading}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-gray-600 font-sans">
                   {featureItem.subHeading}
                 </p>
               </div>

@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "devislists",
+  "info": {
+    "singularName": "devislist",
+    "pluralName": "devislists",
+    "displayName": "devislist",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FullName": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "serviceOption": {
+      "type": "enumeration",
+      "enum": [
+        "option1",
+        "option2",
+        "option3"
+      ]
+    },
+    "email": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    }
+  }
+}

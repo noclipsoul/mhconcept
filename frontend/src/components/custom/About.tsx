@@ -72,13 +72,13 @@ export function About({ data }: { readonly data: AboutProps }) {
   };
 
   return (
-    <section className="container mx-auto ml-auto mr-auto  object-center  py-16 md:py-24">
+    <section className="relative  font-sans  mx-[15%] mt-10 mb-10 max-w-screen-lg">
       <div className=" mx-auto px-10 sm:px-6 lg:px-100 flex flex-col md:flex-row items-center">
         {/* Image Section */}
         <div className="flex-shrink-0 w-1000 h-1000 overflow-hidden rounded-full shadow-lg md:w-80 md:h-80  ">
           <StrapiImage
             alt={image.alternativeText ?? "no alternative text"}
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full mb-3"
             height={1000}
             src={image.url}
             width={1000
@@ -88,7 +88,7 @@ export function About({ data }: { readonly data: AboutProps }) {
         </div>
         {/* Text Section */}
         <div className="mt-8 md:mt-0 md:ml-12 lg:px-100 ">
-          <h3 className="text-4xl font-bold text-gray-800 md:text-5xl lg:text-6xl leading-tight text-center">
+          <h3 className="text-4xl font-semibold text-gray-800 md:text-5xl lg:text-6xl leading-tight text-center">
             {title}
           </h3>
           <br></br>

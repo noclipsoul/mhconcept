@@ -79,7 +79,13 @@ export async function getHomePageData() {
                 populate: '*' 
               }
             }
-          }
+          },
+            "layout.location": { 
+              populate: {
+                fields:["Location"],
+              }
+            }
+
           },
         },
       },
@@ -92,13 +98,34 @@ export async function getHomePageData() {
     const url = new URL("/api/global", baseUrl);
   
     url.search = qs.stringify({
-      populate: [
-        "header.logo",
-        "header.headerlinks",
-        "footer.logoText",
-        "footer.socialLink",
-      ],
-    });
+        populate: {
+            header:{
+              populate:{
+                "headerlinks":{
+                    populate: '*'
+                },
+
+                "logo":{
+                    populate: '*'
+                },
+              }
+            },
+            footer: {
+              populate: {
+                "socialLink": {
+                  populate: '*'
+                },
+                "logoText": {
+                  populate: '*'
+                  
+                },
+                "bgFooter": {
+                  populate: '*'
+                },
+              },
+          },
+      },
+  });
   
     return await fetchData(url.href);
   }

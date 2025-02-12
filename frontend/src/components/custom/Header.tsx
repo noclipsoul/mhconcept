@@ -63,7 +63,7 @@ export function Header({ data }: Readonly<HeaderProps>) {
     <header 
       ref={headerRef}
       className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${
-        (pathname === '/' && isScrolled) || pathname !== '/' ? 'bg-black dark:bg-gray-800' : 'bg-transparent' 
+        (pathname === '/' && isScrolled) || pathname !== '/' ? 'bg-[#3e4748] dark:bg-[#3e4748]' : 'bg-transparent' 
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -90,7 +90,7 @@ export function Header({ data }: Readonly<HeaderProps>) {
         </button>
         {/* Navigation links (shown on md and larger screens) */}
         <nav className="hidden md:flex space-x-4">
-          <a href="/"  className="text-white hover:text-gray-300">Accuile</a>   
+          <a href="/"  className="text-white hover:text-gray-300">Accueil</a>   
           <a href="#services"  onClick={handleServiceClick} className="text-white hover:text-gray-300">Services</a>
           
           <a href="#Projets" onClick={handleServiceClick} className="text-white hover:text-gray-300">Projets</a>   
@@ -108,11 +108,11 @@ export function Header({ data }: Readonly<HeaderProps>) {
         </nav>
         {/* Navigation links (shown on mobile when menu is open) */}
         <nav
-          className={`md:hidden absolute top-full left-0 w-full py-4 px-6 bg-black dark:bg-gray-800 transition duration-300 ease-in-out ${
+          className={`md:hidden absolute top-full left-0 w-full py-4 px-6 bg-[#3e4748] dark:bg-[#3e4748] transition duration-300 ease-in-out ${
             isMenuOpen ? "block" : "hidden"
           }`}
         >
-           <a href="/"  className="text-white hover:text-gray-300">Accuile</a>   <br></br>
+           <a href="/"  className="text-white hover:text-gray-300">Accueil</a>   <br></br>
           <a href="#services"  className="text-white hover:text-gray-300" onClick={handleServiceClick}>Services</a>
           <br></br>
           <a href="#Projets" onClick={handleServiceClick}  className="text-white hover:text-gray-300">Projets</a>   

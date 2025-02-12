@@ -14,8 +14,8 @@ export async function generateMetadata(): Promise<Metadata> {
   const metadata = await getGlobalPageMetadata();
 
   return {
-    title: metadata?.data?.title ?? "Epic Next Course",
-    description: metadata?.data?.description ?? "Epic Next Course",
+    title: metadata?.data?.title ?? "",
+    description: metadata?.data?.description ?? "",
   };
 }
 

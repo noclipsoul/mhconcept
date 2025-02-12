@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_layout_locations",
+  "info": {
+    "displayName": "Location",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Location": {
+      "type": "text"
+    }
+  }
+}

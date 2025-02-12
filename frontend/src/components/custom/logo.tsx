@@ -4,7 +4,7 @@ function MountainIcon(props: any) {
   return (
     <img
       {...props}
-      src="/Mh-concept.svg" // Path to the SVG file in the public folder
+      src="/Mh-concept.png" // Path to the SVG file in the public folder
       alt="Mountain Icon"
     />
   );
@@ -13,8 +13,8 @@ function MountainIcon(props: any) {
 
 export function Logo( ){
   return (
-  <Link className="flex items-center gap-2" href="/">
-    <MountainIcon className={"h-40 w-40 "} />
+  <Link className="flex mt-3 mb-3" href="/">
+    <MountainIcon className={"container w-[103.68] h-[72]"} />
   </Link>
 );
 }

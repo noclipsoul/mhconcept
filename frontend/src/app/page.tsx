@@ -7,7 +7,7 @@ import { Contact } from "@/components/custom/contact";
 import { Partner } from "@/components/custom/Partners";
 import { Reference } from "@/components/custom/references";
 import { Project } from "@/components/custom/Projects";
-
+import { Location } from "@/components/custom/Location";
 const blockComponents = {
   "layout.hero-section": HeroSection,
   "layout.about": About,
@@ -17,7 +17,7 @@ const blockComponents = {
   "layout.features-section": FeatureSection,
   "layout.projects": Project,
   "layout.nos-references": Reference,
- 
+ "layout.location": Location,
   "layout.contact":Contact,
 
 };

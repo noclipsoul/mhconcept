@@ -26,7 +26,8 @@
         "layout.contact",
         "layout.about",
         "layout.nos-references",
-        "layout.projects"
+        "layout.projects",
+        "layout.location"
       ]
     },
     "SeoInformation": {

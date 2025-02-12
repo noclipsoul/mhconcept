@@ -84,15 +84,15 @@ export function Project({ data }: { readonly data: ProjectProps }) {
   };
 
   return (
-    <header className="container mx-auto" id="Projets">
-      <div className="relative px-4 py-16 sm:px-6 lg:px-8">
-        <div className="object-center mb-32">
-          <h2 className="mt-2 text-4xl text-center font-bold text-black">
+    <header className=" font-semibold mx-auto" id="Projets">
+      <div className="relative px-4 py-10 sm:px-6 lg:px-8">
+        <div className="object-center mb-10 ">
+          <h2 className="mt-10 text-4xl text-center font-sans font-semibold text-black">
             Nos Projets
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-3">
+        <div className="grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-15 lg:gap-20 xl:gap-30 ">
           {Projects.map((project) => (
             <div
               key={project.id}
@@ -100,7 +100,7 @@ export function Project({ data }: { readonly data: ProjectProps }) {
             >
               <button onClick={() => openDialog(project)}>
                 {project.imgs.length > 0 && (
-                  <div className="relative aspect-square overflow-hidden">
+                  <div className="flex aspect-square ">
                     <StrapiImage
                       src={project.imgs[0].url}
                       alt={project.imgs[0].alternativeText || "Thumbnail"}
@@ -116,10 +116,10 @@ export function Project({ data }: { readonly data: ProjectProps }) {
         </div>
       </div>
 
-      <dialog ref={dialogRef} className="">
+      <dialog ref={dialogRef} className="w-full h-full">
         {selectedProject && (
           <div className="p-4"> {/* Add padding to the dialog content */}
-            <div className="grid grid-cols-3  gap-4">
+            <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3  gap-4">
               <div className="col-span-2">
               <StrapiImage
                 src={popupImage?.url || selectedProject.imgs[0].url}
@@ -144,7 +144,7 @@ export function Project({ data }: { readonly data: ProjectProps }) {
               </div>
               <div className="col-span-1 text-center">
                 
-                <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h2 className="text-2xl font-bold tracking-tight md:mt-18 text-gray-900 dark:text-white">
                   {selectedProject.title}
                 </h2>
                 <div className="mb-4 text-gray-700 dark:text-gray-400">

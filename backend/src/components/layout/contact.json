@@ -17,6 +17,9 @@
     },
     "telephone": {
       "type": "string"
+    },
+    "adress": {
+      "type": "string"
     }
   }
 }
