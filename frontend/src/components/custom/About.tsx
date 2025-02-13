@@ -72,8 +72,8 @@ export function About({ data }: { readonly data: AboutProps }) {
   };
 
   return (
-    <section className="relative  font-sans  mx-[15%] mt-10 mb-10 max-w-screen-lg">
-      <div className=" mx-auto px-10 sm:px-6 lg:px-100 flex flex-col md:flex-row items-center">
+    <section className="relative  font-sans  mx-[15%] mt-10 mb-10 ">
+      <div className=" mx-auto px-10 sm:px-6  flex flex-col md:flex-row items-center justify-evenly">
         {/* Image Section */}
         <div className="flex-shrink-0 w-1000 h-1000 overflow-hidden rounded-full shadow-lg md:w-80 md:h-80  ">
           <StrapiImage
@@ -87,7 +87,7 @@ export function About({ data }: { readonly data: AboutProps }) {
           />
         </div>
         {/* Text Section */}
-        <div className="mt-8 md:mt-0 md:ml-12 lg:px-100 ">
+        <div className="mt-8 md:mt-0 md:ml-12 ">
           <h3 className="text-4xl font-semibold text-gray-800 md:text-5xl lg:text-6xl leading-tight text-center">
             {title}
           </h3>

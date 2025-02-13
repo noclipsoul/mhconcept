@@ -29,13 +29,13 @@ export function Reference({ data }: { readonly data: ReferencesProps }) {
   const { titre, reference } = data;
 
   return (
-    <section className="container mx-auto text-center">
+    <section className=" mx-auto text-center">
       <h4 className="text-4xl font-sans font-semibold mt-10 mb-10 text-black md:text-5xl">
         Nos References
       </h4>
-      <div className="container">
-        <Swiper
-          spaceBetween={20}
+      <div className="mb-10 ml-4">
+        <Swiper className="container"
+          spaceBetween={17}
           slidesPerView={4}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
           modules={[Autoplay]}
@@ -48,7 +48,7 @@ export function Reference({ data }: { readonly data: ReferencesProps }) {
         >
           {reference.map((refer) => (
             <SwiperSlide key={refer.id}>
-              <div className="flex flex-col items-center p-4 bg-white shadow-md rounded-lg">
+              <div className="flex flex-col items-center p-4 bg-white ">
                 <a
                   target="_blank"
                   rel="noopener noreferrer"

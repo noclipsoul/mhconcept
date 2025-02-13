@@ -87,46 +87,47 @@ export function Project({ data }: { readonly data: ProjectProps }) {
     <header className=" font-semibold mx-auto" id="Projets">
       <div className="relative px-4 py-10 sm:px-6 lg:px-8">
         <div className="object-center mb-10 ">
-          <h2 className="mt-10 text-4xl text-center font-sans font-semibold text-black">
+          <h2 className="text-4xl text-center font-sans font-semibold mt-10 mb-10 text-black md:text-5xl">
             Nos Projets
           </h2>
         </div>
 
-        <div className="grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-15 lg:gap-20 xl:gap-30 ">
-          {Projects.map((project) => (
-            <div
-              key={project.id}
-              className="bg-white border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-            >
-              <button onClick={() => openDialog(project)}>
-                {project.imgs.length > 0 && (
-                  <div className="flex aspect-square ">
-                    <StrapiImage
-                      src={project.imgs[0].url}
-                      alt={project.imgs[0].alternativeText || "Thumbnail"}
-                      width={512}
-                      height={512}
-                      className="object-cover w-full h-full cursor-pointer rounded"
-                    />
+        <div className="grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-15 lg:gap-20 xl:gap-30">
+            {Projects.map((project) => (
+              <div key={project.id} className="relative bg-white group">
+                <button onClick={() => openDialog(project)}>
+                  {project.imgs.length > 0 && (
+                    <div className="aspect-square">
+                      <StrapiImage
+                        src={project.imgs[0].url}
+                        alt={project.imgs[0].alternativeText || "Thumbnail"}
+                        width={512}
+                        height={512}
+                        className="object-cover w-full h-full cursor-pointer"
+                      />
+                    </div>
+                  )}
+                  {/* Hover Panel */}
+                  <div className="absolute inset-0 bg-black bg-opacity-60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {project.title}
                   </div>
-                )}
-              </button>
-            </div>
-          ))}
+                </button>
+              </div>
+            ))}
         </div>
       </div>
 
-      <dialog ref={dialogRef} className="w-full h-full">
+      <dialog ref={dialogRef} className="w-full h-fit">
         {selectedProject && (
           <div className="p-4"> {/* Add padding to the dialog content */}
-            <div className="grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3  gap-4">
+            <div className="grid sm:grid-cols-1  md:grid-cols-1 lg:grid-cols-3  gap-4">
               <div className="col-span-2">
               <StrapiImage
                 src={popupImage?.url || selectedProject.imgs[0].url}
                 alt={popupImage?.alternativeText || selectedProject.title}
                 width={1024}
                 height={1024}
-                className="w-fit h-fit  object-contain rounded shadow-lg"
+                className="md:w-fit md:h-full"
               />
               <div className="mt-4 grid grid-cols-4 gap-4">
                   {selectedProject.imgs.map((img) => (
@@ -142,7 +143,7 @@ export function Project({ data }: { readonly data: ProjectProps }) {
                   ))}
                 </div>
               </div>
-              <div className="col-span-1 text-center">
+              <div className="col-span-2 md:col-span-1 text-center">
                 
                 <h2 className="text-2xl font-bold tracking-tight md:mt-18 text-gray-900 dark:text-white">
                   {selectedProject.title}

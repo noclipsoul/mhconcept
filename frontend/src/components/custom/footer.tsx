@@ -46,10 +46,10 @@ export function Footer({ data }: Readonly<FooterProps>) {
 
       {/* Footer Content */}
       <div className="relative  md:px-20 ">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-10 md:items-start">
           
           {/* Left Section - Logo and Description */}
-          <div className="flex flex-col items-start">
+          <div className="flex flex-col items-center md:items-start">
           <StrapiImage
        alt={logoText.icon.alternativeText ?? "no alternative text"}
        className="w-[103.68] h-[72]  "
@@ -60,16 +60,16 @@ export function Footer({ data }: Readonly<FooterProps>) {
           </div>
 
           {/* Right Section - Contact Information */}
-          <div className="flex flex-col items-end md:items-center">
+          <div className="flex flex-col items-center md:items-end">
             <h3 className="text-lg font-semibold mb-4 uppercase tracking-wide">Entrer en Contact</h3>
-            <div className="space-y-2 text-gray-300 text-right md:text-center">
+            <div className="space-y-2 text-gray-300 text-center md:text-left">
               <p className=" flex md:text-justify "> {text}</p>
             </div>
           </div>
         </div>
 
         {/* Social Media Links */}
-        <div className="mt-8 flex flex-col items-end space-x-4">
+        <div className="mt-8 flex flex-col items-center md:items-end space-x-4">
           {socialLink.map((link) => (
             <a
               key={link.id}
@@ -90,7 +90,7 @@ export function Footer({ data }: Readonly<FooterProps>) {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400">
+        <div className=" pt-8 border-t border-gray-800 text-center md:text-left text-sm text-gray-400">
           <p>Copyright ©2025 , All Rights Reserved.</p>
         </div>
       </div>

@@ -42,7 +42,7 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
   const {  bgFeatureimage, feature } = data;
 
   return (
-    <header className="relative  font-sans min-h-screen" id="services">
+    <header className="relative  font-sans" id="services">
       <div className="absolute inset-0 z-0">
         <StrapiImage
           className="w-full h-full object-cover" // Use object-cover for background image
@@ -54,7 +54,7 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
         <div className="absolute inset-0 bg-black/30" />
       </div>
 
-      <div className="relative z-10 max-w-fit mx-auto px-4 py-16 sm:py-24 lg:py-32"> {/* Responsive padding */}
+      <div className="relative  max-w-full mx-auto px-4 py-16 sm:py-24 lg:py-32"> {/* Responsive padding */}
         <div className="space-y-16">
           <div className="text-center lg:text-left"> {/* Center text on smaller screens */}
             <h2 className="text-sm uppercase tracking-wider text-white mb-4">
@@ -65,9 +65,9 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
             </h1>
           </div>
 
-          <div className="container w-full grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"> {/* Responsive grid */}
+          <div className=" w-full grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"> {/* Responsive grid */}
             {feature.map((featureItem) => ( // Renamed feature to featureItem to avoid naming conflict
-              <div key={featureItem.id} className="bg-white p-6 sm:p-8 flex flex-col items-center text-center space-y-6 rounded-lg shadow-md"> {/* Added rounded corners and shadow */}
+              <div key={featureItem.id} className="bg-white bg-opacity-60 p-6 sm:p-8 flex flex-col items-center text-center space-y-6  shadow-md"> {/* Added rounded corners and shadow */}
                 <div className="w-16 h-16 sm:w-20 sm:h-20"> {/* Responsive icon size */}
                   <StrapiImage
                     src={featureItem.icon.url}

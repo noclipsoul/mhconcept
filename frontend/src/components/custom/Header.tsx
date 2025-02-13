@@ -71,10 +71,10 @@ export function Header({ data }: Readonly<HeaderProps>) {
         (pathname === '/' && isScrolled) || pathname !== '/' ? 'bg-[#3e4748] dark:bg-[#3e4748]' : 'bg-transparent' 
       }`}
     >
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className=" mx-auto px-4 mt-10 mb-10 flex items-center justify-between">
        <StrapiImage
        alt={logo.alternativeText ?? "no alternative text"}
-       className="w-[103.68] h-[72]  "
+       className="w-[103.68] h-[72]"
        height={72}
        src={logo.url}
        width={103.68}
@@ -101,10 +101,10 @@ export function Header({ data }: Readonly<HeaderProps>) {
         </button>
         {/* Navigation links (shown on md and larger screens) */}
         <nav className="hidden md:flex space-x-4">
-          <a href="/"  className="text-white hover:text-gray-300">Accueil</a>   
-          <a href="#services"  onClick={handleServiceClick} className="text-white hover:text-gray-300">Services</a>
+          <a href="/"  className="text-white hover:text-gray-300">ACCUEIL</a>   
+          <a href="#services"  onClick={handleServiceClick} className="text-white hover:text-gray-300">SERVICES</a>
           
-          <a href="#Projets" onClick={handleServiceClick} className="text-white hover:text-gray-300">Projets</a>   
+          <a href="#Projets" onClick={handleServiceClick} className="text-white hover:text-gray-300">PROJECTS</a>   
           {headerlinks.map((hlinks) => (
             <Link
               key={hlinks.id}
@@ -115,7 +115,7 @@ export function Header({ data }: Readonly<HeaderProps>) {
               {hlinks.text}
             </Link>
           ))}
-           <a href="#Contact" onClick={handleServiceClick} className="text-white hover:text-gray-300">Contact</a>
+           <a href="#Contact" onClick={handleServiceClick} className="text-white hover:text-gray-300">CONTACT</a>
         </nav>
         {/* Navigation links (shown on mobile when menu is open) */}
         <nav
@@ -123,20 +123,20 @@ export function Header({ data }: Readonly<HeaderProps>) {
             isMenuOpen ? "block" : "hidden"
           }`}
         >
-           <a href="/"  className="text-white hover:text-gray-300">Accueil</a>   <br></br>
-          <a href="#services"  className="text-white hover:text-gray-300" onClick={handleServiceClick}>Services</a>
+           <a href="/"  className="text-white hover:text-gray-300">ACCUEIL</a>   <br></br>
+          <a href="#services"  className="text-white hover:text-gray-300" onClick={handleServiceClick}>SERVICES</a>
           <br></br>
-          <a href="#Projets" onClick={handleServiceClick}  className="text-white hover:text-gray-300">Projets</a>   
+          <a href="#Projets" onClick={handleServiceClick}  className="text-white hover:text-gray-300">PROJECTS</a>   
           {headerlinks.map((hlinks) => (
             <Link
               key={hlinks.id}
               href={hlinks.url}
-              className="text-white hover:text-gray-300 block mb-2"
+              className="text-white hover:text-gray-300 block "
             >
               {hlinks.text}
             </Link>
           ))}
-           <a href="#Contact" onClick={handleServiceClick} className="text-white hover:text-gray-300">Contact</a>
+           <a href="#Contact" onClick={handleServiceClick} className="text-white hover:text-gray-300">CONTACT</a>
         </nav>
       </div>
     </header>

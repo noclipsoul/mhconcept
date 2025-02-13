@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '1338',
+        port: '1337',
         pathname: '/uploads/**/*',
       },
       {
@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'https://backoffice.mhconcept.tn/uploads/',
+        hostname: 'backoffice.mhconcept.tn',
         pathname: '/**/*', // Allow all paths for this hostname
       },
     ],
