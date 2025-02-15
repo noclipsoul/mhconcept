@@ -18,7 +18,7 @@ export function Contact({ data }: { readonly data: ContactProps }) {
   const { title, description, telephone, email,adress } = data;
 
   return (
-    <section className="p-4  font-sans items-center relative mx-[15%] mt-10  " id="Contact">
+    <section className="p-4  font-sans items-center relative mx-[15%] pt-24 pb-52 " id="Contact">
       <div className=" space-y-12"> {/* Added max-w-7xl for larger screens */}
         <div className="space-y-8 text-center md:text-left"> {/* Text alignment adjusted */}
           <h2 className="text-sm uppercase tracking-wider text-gray-600">Contact</h2>

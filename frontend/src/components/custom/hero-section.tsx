@@ -42,7 +42,7 @@ export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
         loop={true} // Loop through the images
         modules={[Autoplay]}
         autoplay={{
-          delay: 1500, // Duration of each slide in milliseconds
+          delay: 5000, // Duration of each slide in milliseconds
           disableOnInteraction: false, // Allow user interaction without stopping autoplay
         }}
         className="absolute inset-0 w-full h-full"

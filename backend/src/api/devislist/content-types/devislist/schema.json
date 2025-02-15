@@ -21,9 +21,11 @@
     "serviceOption": {
       "type": "enumeration",
       "enum": [
-        "option1",
-        "option2",
-        "option3"
+        "design-conception",
+        "Reamenagement",
+        "pilotage-suivi-chantier",
+        "Plans-evacuations",
+        "Plans-reglementaires"
       ]
     },
     "email": {

@@ -25,7 +25,10 @@ const blockComponents = {
 
 function blockRenderer(block: any) {
   const Component = blockComponents[block.__component as keyof typeof blockComponents];
-  return Component ? <Component key={block.id} data={block} /> : null;
+
+  block.id=Math.random()
+
+  return Component ? <Component  key={block.id} data={block} /> : null;
 }
 
 export default function Home() {
@@ -38,7 +41,7 @@ export default function Home() {
       try {
         const strapiData = await getHomePageData();
         const { blocks } = strapiData.data;
-
+       
         if (blocks) {
           setBlocks(blocks);
         }
@@ -62,6 +65,7 @@ export default function Home() {
 
   return (
     <main>
+      
       {blocks.map((block: any) => blockRenderer(block))}
     </main>
   );

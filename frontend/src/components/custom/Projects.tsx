@@ -84,8 +84,8 @@ export function Project({ data }: { readonly data: ProjectProps }) {
   };
 
   return (
-    <header className=" font-semibold mx-auto" id="Projets">
-      <div className="relative px-4 py-10 sm:px-6 lg:px-8">
+    <header className="pt-32 font-semibold mx-auto" id="Projets">
+      <div className="relative px-4  sm:px-6 lg:px-8">
         <div className="object-center mb-10 ">
           <h2 className="text-4xl text-center font-sans font-semibold mt-10 mb-10 text-black md:text-5xl">
             Nos Projets
@@ -95,7 +95,9 @@ export function Project({ data }: { readonly data: ProjectProps }) {
         <div className="grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-15 lg:gap-20 xl:gap-30">
             {Projects.map((project) => (
               <div key={project.id} className="relative   bg-white group">
+              
                 <button >
+              
                   {project.imgs.length > 0 && (
                     <div className="aspect-square">
                       <StrapiImage

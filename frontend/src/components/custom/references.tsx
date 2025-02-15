@@ -48,6 +48,7 @@ export function Reference({ data }: { readonly data: ReferencesProps }) {
         >
           {reference.map((refer) => (
             <SwiperSlide key={refer.id}>
+              
               <div className="flex flex-col items-center p-4 bg-white ">
                 <a
                   target="_blank"

@@ -25,6 +25,13 @@
     },
     "description": {
       "type": "text"
+    },
+    "rounedimage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

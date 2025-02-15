@@ -31,7 +31,8 @@ export default async function RootLayout({
       <body>
         <Header data={globalData.data.header} />
         {children}
-        <Footer data={globalData.data.footer} />
+    
+        <Footer    data={globalData.data.footer} />
       </body>
     </html>
   );

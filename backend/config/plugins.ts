@@ -1,8 +1,8 @@
 export default () => ({
-    seo: {
-        enabled: true,
-      },
-       // Users & Permissions Plugin
+  seo: {
+    enabled: true,
+  },
+  // Users & Permissions Plugin
   'users-permissions': {
     config: {
       jwtSecret: 'EQWDZxQjIJiGomhhsVWLGg==', // Hardcoded JWT secret
@@ -13,17 +13,21 @@ export default () => ({
     config: {
       provider: 'nodemailer',
       providerOptions: {
-        host: 'mail.mhconcept.tn',
-        port: 587,
-        secure: true,
+        host: 'ssl0.ovh.net',
+        port: 465,
+        secure: true, // Ensure the connection is secure
         auth: {
-          user: 'admin@mhconcept.tn',
-          pass: 'MpHfxHDgew',
+          user: 'contact@mhconcept.tn',
+          pass: 'Uw@aZEjN2wp4KtM', // Ensure this password is correct
+        },
+        authMethod: 'PLAIN', // Explicitly specify the PLAIN authentication method
+        tls: {
+          rejectUnauthorized: false, // Set to false to bypass certificate validation issues
         },
       },
       settings: {
-        defaultFrom: 'admin@mhconcept.tn',
-        defaultReplyTo: 'admin@mhconcept.tn',
+        defaultFrom: 'contact@mhconcept.tn', // Sender email address
+        defaultReplyTo: 'contact@mhconcept.tn', // Reply-to address
       },
     },
   },

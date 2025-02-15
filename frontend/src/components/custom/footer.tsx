@@ -46,8 +46,8 @@ export function Footer({ data }: Readonly<FooterProps>) {
       </div>
 
       {/* Footer Content */}
-      <div className="relative  md:px-20 ">
-        <div className="grid grid-cols-1 items-center md:grid-cols-2 gap-5 text-justify mb-5 md:items-start">
+      <div className="relative  px-4 py-4">
+        <div className="flex flex-col pb-4 md:flex-row  md:justify-between xl:gap-x-96 lg:gap-60 md:gap-50 sm:gap-30 gap-0  ">
           
           {/* Left Section - Logo and Description */}
           <div className="flex flex-col items-center md:items-start">
@@ -61,15 +61,19 @@ export function Footer({ data }: Readonly<FooterProps>) {
               width={103.68}
               />
           </a>
-          <p className="py-4 px-4 text-justify">{descriptionlogo}</p>
+          <div className="grid md:grid-cols-2">
+          <p className="py-4  ml-0 sm:rl-10 md:rl-60 lg:rl-80  text-justify">{descriptionlogo}</p>
+          </div>
           </div>
 
           {/* Right Section - Contact Information */}
-          <div className="flex flex-col items-center md:items-end">
-            <h3 className="text-lg font-semibold mb-4 uppercase tracking-wide">Entrer en Contact</h3>
-            <div className="space-y-2 text-gray-300 text-center md:text-left">
-              <p className=" flex py-4 px-4 text-justify md:text-justify "> {text}</p>
-            </div>
+          <div className="flex flex-col mt-14 items-center md:items-end">
+            <h3 className="text-lg md:justify-end font-semibold mb-1 uppercase tracking-wide">Entrer en Contact</h3>
+            <div className="grid grid-cols-1 justify-center text-center gap-x-32 text-gray-300  md:text-left">
+           
+              <p className=" ml-0 sm:ml-10 md:ml-20 lg:ml-30  "> {text}</p>
+         
+          </div>
           </div>
         </div>
 
