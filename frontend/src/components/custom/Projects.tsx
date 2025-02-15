@@ -95,7 +95,7 @@ export function Project({ data }: { readonly data: ProjectProps }) {
         <div className="grid relative grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-15 lg:gap-20 xl:gap-30">
             {Projects.map((project) => (
               <div key={project.id} className="relative   bg-white group">
-                <button onClick={() => openDialog(project)}>
+                <button >
                   {project.imgs.length > 0 && (
                     <div className="aspect-square">
                       <StrapiImage
@@ -108,7 +108,7 @@ export function Project({ data }: { readonly data: ProjectProps }) {
                     </div>
                   )}
                   {/* Hover Panel */}
-                  <div className="absolute inset-0 rounded-[10%] bg-black bg-opacity-60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div  onClick={() => openDialog(project)}  className="absolute inset-0 rounded-[10%] bg-black bg-opacity-60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     {project.title}
                   </div>
                 </button>
@@ -117,7 +117,49 @@ export function Project({ data }: { readonly data: ProjectProps }) {
         </div>
       </div>
 
-      
+      <dialog ref={dialogRef} className="w-full h-fit">
+        {selectedProject && (
+          <div className="p-4"> {/* Add padding to the dialog content */}
+            <div className="grid sm:grid-cols-1  md:grid-cols-1 lg:grid-cols-3  gap-4">
+              <div className="col-span-2">
+              <StrapiImage
+                src={popupImage?.url || selectedProject.imgs[0].url}
+                alt={popupImage?.alternativeText || selectedProject.title}
+                width={1024}
+                height={1024}
+                className="md:w-fit md:h-fit"
+              />
+              <div className="mt-4 grid grid-cols-4 gap-4">
+                  {selectedProject.imgs.map((img) => (
+                    <StrapiImage
+                      key={img.id}
+                      src={img.url}
+                      alt={img.alternativeText || "Thumbnail"}
+                      width={256}
+                      height={256}
+                      className={`cursor-pointer rounded border ${popupImage?.id === img.id ? "border-blue-500" : "border-transparent"}`}
+                      onClick={() => handleThumbnailClick(img)}
+                    />
+                  ))}
+                </div>
+              </div>
+              <div className="col-span-2 md:col-span-1 text-center">
+                
+                <h2 className="text-2xl font-bold tracking-tight md:mt-18 text-gray-900 dark:text-white">
+                  {selectedProject.title}
+                </h2>
+                <div className="mb-4 text-gray-700 dark:text-gray-400">
+                  <RichTextRenderer elements={selectedProject.Description} />
+                </div>
+                
+              </div>
+            </div>
+            <button onClick={closeDialog} className="absolute top-4 right-4">
+              Close
+            </button>
+          </div>
+        )}
+      </dialog>
     </header>
   );
 }

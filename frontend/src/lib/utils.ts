@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 export function getStrapiURL() {
-  return process.env.STRAPI_URL ?? "http://localhost:1337";
+  return process.env.STRAPI_URL ?? "https://backoffice.mhconcept.tn";
 }
 
 export function getStrapiMedia(url: string | null) {
