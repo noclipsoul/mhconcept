@@ -37,7 +37,7 @@ export function Reference({ data }: { readonly data: ReferencesProps }) {
         <Swiper className="container"
           spaceBetween={17}
           slidesPerView={4}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          autoplay={{ delay: 1500, disableOnInteraction: false }}
           modules={[Autoplay]}
           breakpoints={{
             640: { slidesPerView: 1 },

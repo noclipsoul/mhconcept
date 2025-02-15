@@ -21,6 +21,18 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+  experimental: {
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
+  },
+
   webpack(config) {
     // Adding path aliasing for @/* to src/*
     config.resolve.alias['@'] = path.join(__dirname, 'src');

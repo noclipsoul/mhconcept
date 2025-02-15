@@ -70,6 +70,45 @@ export function DevisForm() {
         {message && <p className="text-center text-sm text-green-600">{message}</p>}
 
         <form className="space-y-6" onSubmit={handleSubmit}>
+
+         {/* Service Option */}
+         <div>
+            <label htmlFor="serviceOption" className="block text-sm font-medium text-gray-700">
+              Choisissez une option
+            </label>
+            <select
+              id="serviceOption"
+              name="serviceOption"
+              value={formData.serviceOption}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            >
+              <option value="">Services</option>
+              <option value="design-conception">Design et conception</option>
+              <option value="Reamenagement">Réaménagement d'espace intérieur et extérieur</option>
+              <option value="pilotage-suivi-chantier">Suivi et pilotage du chantier</option>
+              <option value="Plans-evacuations">Plans d'évacuations</option>
+              <option value="Plans-reglementaires">Plans réglementaires</option>
+            </select>
+          </div>
+
+          {/* Description */}
+          <div>
+            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+              Description
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              rows={5}
+              value={formData.description}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+            ></textarea>
+          </div>
+
           {/* Full Name */}
           <div>
             <label htmlFor="fullName" className="block text-sm font-medium text-gray-700">
@@ -118,43 +157,7 @@ export function DevisForm() {
             />
           </div>
 
-          {/* Service Option */}
-          <div>
-            <label htmlFor="serviceOption" className="block text-sm font-medium text-gray-700">
-              Choisissez une option
-            </label>
-            <select
-              id="serviceOption"
-              name="serviceOption"
-              value={formData.serviceOption}
-              onChange={handleChange}
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            >
-              <option value="">Services</option>
-              <option value="design-conception">Design et conception</option>
-              <option value="Reamenagement">Réaménagement d'espace intérieur et extérieur</option>
-              <option value="pilotage-suivi-chantier">Suivi et pilotage du chantier</option>
-              <option value="Plans-evacuations">Plans d'évacuations</option>
-              <option value="Plans-reglementaires">Plans réglementaires</option>
-            </select>
-          </div>
-
-          {/* Description */}
-          <div>
-            <label htmlFor="description" className="block text-sm font-medium text-gray-700">
-              Description
-            </label>
-            <textarea
-              id="description"
-              name="description"
-              rows={5}
-              value={formData.description}
-              onChange={handleChange}
-              required
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            ></textarea>
-          </div>
+         
 
           {/* Submit Button */}
           <div>

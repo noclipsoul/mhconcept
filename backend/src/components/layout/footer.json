@@ -20,11 +20,15 @@
       "component": "components.link"
     },
     "bgFooter": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "descriptionlogo": {
+      "type": "text"
     }
   }
 }

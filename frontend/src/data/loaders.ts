@@ -4,7 +4,7 @@ import { tree } from "next/dist/build/templates/app-page";
 
 const baseUrl = getStrapiURL();
 
-async function fetchData(url: string) {
+async function  fetchData(url: string) {
   const authToken = null; // we will implement this later getAuthToken() later
   const headers = {
     method: "GET",

@@ -1,3 +1,6 @@
+"use client";
+import { useState, useRef } from "react";
+
 import { StrapiImage } from "@/components/custom/StrapiImage";
 import swiper from "swiper"
 interface StrapiImage {
@@ -19,6 +22,7 @@ interface Features {
     url: string;
     alternativeText: string;
   };
+  description:string;
 }
 
 interface Image {
@@ -40,7 +44,23 @@ interface FeaturesSectionProps {
 
 export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }) {
   const {  bgFeatureimage, feature } = data;
+  const [selectedFeat, setSelectedProject] = useState<Features | null>(null);
+const dialogRef = useRef<HTMLDialogElement>(null);
 
+  const openDialog = (feature: Features) => {
+    setSelectedProject(feature);
+   
+    if (dialogRef.current) {
+      dialogRef.current.showModal();
+    }
+  };
+  const closeDialog = () => {
+    setSelectedProject(null);
+  
+    if (dialogRef.current) {
+      dialogRef.current.close();
+    }
+  };
   return (
     <header className="relative  font-sans" id="services">
       <div className="absolute inset-0 z-0">
@@ -65,9 +85,9 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
             </h1>
           </div>
 
-          <div className=" w-full grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"> {/* Responsive grid */}
+          <div className=" md:w-full w-auto grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5"> {/* Responsive grid */}
             {feature.map((featureItem) => ( // Renamed feature to featureItem to avoid naming conflict
-              <div key={featureItem.id} className="bg-white bg-opacity-60 p-6 sm:p-8 flex flex-col items-center text-center space-y-6  shadow-md"> {/* Added rounded corners and shadow */}
+              <div key={featureItem.id} className="bg-white rounded-[10%]  bg-opacity-60 p-2  flex flex-col items-center text-center space-y-5  shadow-md"> {/* Added rounded corners and shadow */}
                 <div className="w-16 h-16 sm:w-20 sm:h-20"> {/* Responsive icon size */}
                   <StrapiImage
                     src={featureItem.icon.url}
@@ -77,9 +97,14 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
                     className="object-contain" // Added object-contain for icon images
                   />
                 </div>
+                <button onClick={() => openDialog(featureItem)}>
                 <h3 className="text-xl font-sans font-semibold"> {/* Responsive heading size */}
                   {featureItem.heading}
                 </h3>
+                <div className="absolute inset-0 rounded-[10%] bg-black bg-opacity-60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {featureItem.heading}
+                  </div>
+                </button>
                 <p className="text-gray-600 font-sans">
                   {featureItem.subHeading}
                 </p>
@@ -88,6 +113,25 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
           </div>
         </div>
       </div>
+      <dialog ref={dialogRef} className="w-full h-fit ">
+        {selectedFeat && (
+          <div className="lg:py-70 xl:py-80 md:p-50 sm:py-30 py-80 "> {/* Add padding to the dialog content */}
+           
+              <div className="container text-center">
+                
+                <p className="text-center font-sans tracking-tight md:mt-18 text-gray-900 dark:text-white">
+                  {selectedFeat.description}
+                </p>
+                
+                
+              </div>
+          
+            <button onClick={closeDialog} className="absolute top-4 right-4">
+              X
+            </button>
+          </div>
+        )}
+      </dialog>
     </header>
   );
 }

@@ -18,7 +18,7 @@ export function Contact({ data }: { readonly data: ContactProps }) {
   const { title, description, telephone, email,adress } = data;
 
   return (
-    <section className="py-16  font-sans items-center relative mx-[15%] mt-10 max-w-screen-lg " id="Contact">
+    <section className="p-4  font-sans items-center relative mx-[15%] mt-10  " id="Contact">
       <div className=" space-y-12"> {/* Added max-w-7xl for larger screens */}
         <div className="space-y-8 text-center md:text-left"> {/* Text alignment adjusted */}
           <h2 className="text-sm uppercase tracking-wider text-gray-600">Contact</h2>
@@ -28,7 +28,7 @@ export function Contact({ data }: { readonly data: ContactProps }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 pt-8"> {/* Adjusted grid responsiveness */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 pt-8"> {/* Adjusted grid responsiveness */}
           <div className="space-y-4">
             <FontAwesomeIcon icon={faPhone} size="2x" className="mx-auto md:mx-0" /> {/* Centered icon on smaller screens */}
             <h3 className="uppercase text-sm tracking-wider text-gray-600">Tel</h3>
