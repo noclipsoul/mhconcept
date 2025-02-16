@@ -1,7 +1,7 @@
 
 // Add this line at the top of the file to mark it as a client component
-"use client";
-import { useEffect, useState } from "react";
+
+
 import { getHomePageData } from "@/data/loaders";
 import { HeroSection } from "@/components/custom/hero-section";
 import { FeatureSection } from "@/components/custom/FeaturesSection";
@@ -23,50 +23,17 @@ const blockComponents = {
   "layout.contact": Contact,
 };
 
+
 function blockRenderer(block: any) {
   const Component = blockComponents[block.__component as keyof typeof blockComponents];
-
   block.id=Math.random()
-
-  return Component ? <Component  key={block.id} data={block} /> : null;
+  return Component ? <Component key={block.id} data={block} /> : null;
 }
 
-export default function Home() {
-  const [blocks, setBlocks] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
 
-  // Fetch the data when the component mounts
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const strapiData = await getHomePageData();
-        const { blocks } = strapiData.data;
-       
-        if (blocks) {
-          setBlocks(blocks);
-        }
-      } catch (error) {
-        console.error("Error fetching home page data:", error);
-      } finally {
-        setLoading(false); // Stop loading when the fetch is complete
-      }
-    }
 
-    fetchData();
-  }, []); // Empty dependency array ensures this runs only once on mount
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!blocks || blocks.length === 0) {
-    return <div>No blocks found</div>;
-  }
-
-  return (
-    <main>
-      
-      {blocks.map((block: any) => blockRenderer(block))}
-    </main>
-  );
+export default async function Home() {
+  const strapiData = await getHomePageData();
+  const { blocks } = strapiData?.data || [];
+  return <main>{blocks.map(blockRenderer)}</main>;
 }

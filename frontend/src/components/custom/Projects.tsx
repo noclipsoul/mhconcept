@@ -84,7 +84,7 @@ export function Project({ data }: { readonly data: ProjectProps }) {
   };
 
   return (
-    <header className="pt-32 font-semibold mx-auto" id="Projets">
+    <header className="pb-24 pt-24 font-semibold mx-auto" id="Projets">
       <div className="relative px-4  sm:px-6 lg:px-8">
         <div className="object-center mb-10 ">
           <h2 className="text-4xl text-center font-sans font-semibold mt-10 mb-10 text-black md:text-5xl">

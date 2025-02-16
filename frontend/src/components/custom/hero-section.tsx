@@ -34,7 +34,7 @@ interface HeroSectionProps {
 }
 export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
   const { heading, subHeading,smalltext, image, link } = data;
-  console.log(smalltext+"a")
+
   return (
 
     <header className="relative h-screen overflow-hidden">

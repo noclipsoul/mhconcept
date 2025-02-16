@@ -64,14 +64,14 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
   };
 
   return (
-    <header className="relative pt-16 font-sans" id="services">
+    <header className="relative pt-24 font-sans" id="services">
       <div className="  ">
         {/* Grid Section */}
         <div className="relative max-w-full  pt-10 px-7 sm:py-24 lg:py-32">
           <div className="space-y-16">
-            <div className="text-center lg:text-left">
-              <h2 className="text-sm uppercase tracking-wider text-white mb-4">SERVICES</h2>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light text-white">
+            <div className="text-center text-black md:text-white lg:text-left">
+              <h2 className="text-sm uppercase tracking-wider text-black md:text-white mb-4">SERVICES</h2>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-light  text-black md:text-white">
                 Que pouvons-nous offrir.
               </h1>
             </div>

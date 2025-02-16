@@ -18,8 +18,8 @@ export function Contact({ data }: { readonly data: ContactProps }) {
   const { title, description, telephone, email,adress } = data;
 
   return (
-    <section className="p-4  font-sans items-center relative mx-[15%] pt-24 pb-52 " id="Contact">
-      <div className=" space-y-12"> {/* Added max-w-7xl for larger screens */}
+    <section className="  font-sans items-center relative mx-[15%] pt-40  pb-52 " id="Contact">
+     
         <div className="space-y-8 text-center md:text-left"> {/* Text alignment adjusted */}
           <h2 className="text-sm uppercase tracking-wider text-gray-600">Contact</h2>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold">{title}</h1> {/* Adjusted font size */}
@@ -47,7 +47,7 @@ export function Contact({ data }: { readonly data: ContactProps }) {
             <p className="text-lg text-gray-600">{adress}</p>
           </div>
         </div>
-      </div>
+     
     </section>
   );
 }

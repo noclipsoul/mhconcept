@@ -1,6 +1,7 @@
 "use client"
 import { Logo } from "@/components/custom/logo"
 import { StrapiImage } from "./StrapiImage"
+import React from "react"
 
 interface Slinks {
   id: number
@@ -48,7 +49,7 @@ export function Footer({ data }: Readonly<FooterProps>) {
 
       {/* Footer Content */}
       <div className="relative  px-4 py-4">
-        <div className="flex flex-col pb-4 md:flex-row  md:justify-between xl:gap-x-96 lg:gap-60 md:gap-50 sm:gap-30 gap-0  ">
+        <div className="flex flex-col pb-4 md:flex-row md:gap-[50%]  md:justify-between   ">
           
           {/* Left Section - Logo and Description */}
           <div className="flex flex-col items-center md:items-start">
@@ -62,18 +63,33 @@ export function Footer({ data }: Readonly<FooterProps>) {
               width={103.68}
               />
           </a>
-          <div className="grid md:grid-cols-2">
-          <p className="py-4  ml-0 sm:rl-10 md:rl-60 lg:rl-80  text-justify">{descriptionlogo}</p>
+          <div className="items-center">
+       
+          <p className="py-4  ml-0 sm:rl-10 md:rl-60 lg:rl-80  justify-center text-center md:text-left">
+            {descriptionlogo.split("\n").map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </p>
           </div>
           </div>
 
           {/* Right Section - Contact Information */}
-          <div className="flex flex-col mt-14 items-center md:items-end">
-            <h3 className="text-lg md:justify-end font-semibold mb-1 uppercase tracking-wide">Entrer en Contact</h3>
-            <div className="grid grid-cols-1 justify-center text-center gap-x-32 text-gray-300  md:text-left">
+          <div className="mt-14 items-center ">
+            <h3 className="text-lg  font-semibold   text-center mb-1 uppercase tracking-wide">Entrer en Contact</h3>
+            <div className=" justify-center text-center  text-gray-300  md:text-left">
            
-              <p className=" ml-0 sm:ml-10 md:ml-20 lg:ml-30  "> {text}</p>
-         
+                <p className="">
+            {text.split("\n").map((line, index) => (
+              <React.Fragment key={index}>
+                {line}
+                <br />
+              </React.Fragment>
+            ))}
+          </p>
+
           </div>
           </div>
         </div>
