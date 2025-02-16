@@ -1,3 +1,4 @@
+"use client"
 import { Logo } from "@/components/custom/logo"
 import { StrapiImage } from "./StrapiImage"
 

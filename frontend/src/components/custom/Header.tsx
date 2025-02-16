@@ -115,7 +115,7 @@ export function Header({ data }: Readonly<HeaderProps>) {
           <a href="/"  className="text-white hover:text-gray-300">ACCUEIL</a>   
           <a href="#services"  onClick={handleServiceClick} className="text-white hover:text-gray-300">SERVICES</a>
           
-          <a href="#Projets" onClick={handleServiceClick} className="text-white hover:text-gray-300">PROJECTS</a>   
+          <a href="#Projets" onClick={handleServiceClick} className="text-white hover:text-gray-300">PROJETS</a>   
           <a href="/Devis" onClick={handleServiceClick} className="text-white hover:text-gray-300">DEVIS</a>
            <a href="#Contact" onClick={handleServiceClick} className="text-white hover:text-gray-300">CONTACT</a>
           
@@ -165,7 +165,7 @@ export function Header({ data }: Readonly<HeaderProps>) {
            <a href="/"  className="text-white hover:text-gray-300">ACCUEIL</a>  
           <a href="#services"  className="text-white hover:text-gray-300" onClick={handleServiceClick}>SERVICES</a>
       
-          <a href="#Projets" onClick={handleServiceClick}  className="text-white hover:text-gray-300">PROJECTS</a>   
+          <a href="#Projets" onClick={handleServiceClick}  className="text-white hover:text-gray-300">PROJETS</a>   
         
            <a href="/Devis" onClick={handleServiceClick} className="text-white hover:text-gray-300">DEVIS</a>
           

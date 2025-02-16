@@ -67,7 +67,7 @@ export function DevisForm() {
       <div className="max-w-screen-2xl w-full space-y-8 bg-white p-8 rounded-lg shadow-md">
         <h2 className="text-center text-2xl font-bold text-gray-800">Demande de Devis</h2>
 
-        {message && <p className="text-center text-sm text-green-600">{message}</p>}
+        {message && <p className="text-center text-sm">{message}</p>}
 
         <form className="space-y-6" onSubmit={handleSubmit}>
 

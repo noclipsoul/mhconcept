@@ -27,13 +27,16 @@ interface HeroSectionProps {
   __component: string;
   heading: string;
   subHeading: string;
+  smalltext: string;
   image: Image[];
   link: Link;
+
 }
 export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
-  const { heading, subHeading, image, link } = data;
-
+  const { heading, subHeading,smalltext, image, link } = data;
+  console.log(smalltext+"a")
   return (
+
     <header className="relative h-screen overflow-hidden">
       {/* Swiper Container */}
       <Swiper
@@ -62,7 +65,8 @@ export function HeroSection({ data }: { readonly data: HeroSectionProps }) {
 
       {/* Overlay Content */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center h-full text-center text-white bg-black bg-opacity-40">
-        <h1 className="text-4xl font-bold md:text-5xl lg:text-6xl">{heading}</h1>
+        <div className="pb-3">{smalltext} </div>
+        <a className="text-4xl font-bold md:text-5xl lg:text-6xl">{heading}</a>
         <p className="mt-4 text-lg md:text-xl lg:text-2xl">{subHeading}</p>
         <a href="#Projets" className="top-auto mt-10 py-4 bottom-auto bg-transparent  hover:bg-white hover:text-black opacity-70 rounded border"><span className=" px-10">{link.text}</span></a>
       </div>

@@ -17,7 +17,7 @@ export default () => ({
         port: 465,
         secure: true, // Ensure the connection is secure
         auth: {
-          user: 'contact@mhconcept.tn',
+          user: 'dg@mhconcept.tn',
           pass: 'Uw@aZEjN2wp4KtM', // Ensure this password is correct
         },
         authMethod: 'PLAIN', // Explicitly specify the PLAIN authentication method
@@ -26,8 +26,8 @@ export default () => ({
         },
       },
       settings: {
-        defaultFrom: 'contact@mhconcept.tn', // Sender email address
-        defaultReplyTo: 'contact@mhconcept.tn', // Reply-to address
+        defaultFrom: 'dg@mhconcept.tn', // Sender email address
+        defaultReplyTo: 'dg@mhconcept.tn', // Reply-to address
       },
     },
   },

@@ -43,7 +43,7 @@ export function Contact({ data }: { readonly data: ContactProps }) {
 
           <div className="space-y-4">
             <FontAwesomeIcon icon={faLocationDot} size="2x" className="mx-auto md:mx-0" /> {/* Centered icon on smaller screens */}
-            <h3 className="uppercase text-sm tracking-wider text-gray-600">Adress</h3>
+            <h3 className="uppercase text-sm tracking-wider text-gray-600">Adresse</h3>
             <p className="text-lg text-gray-600">{adress}</p>
           </div>
         </div>
