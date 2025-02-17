@@ -85,8 +85,8 @@ export function DevisForm() {
               className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
             >
           
-              <option value="design-conception">Design et conception</option>
-              <option value="Reamenagement">Réaménagement d'espace intérieur et extérieur</option>
+              <option value="Conception-reamenagement">Conception et réaménagement</option>
+              <option value="Permis-de-batir">Permis de bâtir</option>
               <option value="pilotage-suivi-chantier">Suivi et pilotage du chantier</option>
               <option value="Plans-evacuations">Plans d'évacuations</option>
               <option value="Plans-reglementaires">Plans réglementaires</option>

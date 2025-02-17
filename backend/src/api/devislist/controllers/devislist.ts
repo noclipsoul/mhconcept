@@ -23,7 +23,7 @@ export default factories.createCoreController('api::devislist.devislist', ({ str
 
       // Sending email
       await emailService.send({
-        to: 'contact@mhconcept.tn',  // Recipient email
+        to: 'dg@mhconcept.tn',  // Recipient email
         subject: 'New Devis Request', // Subject of the email
         html: htmlContent,  // HTML body for better readability
         text: `
@@ -35,7 +35,7 @@ export default factories.createCoreController('api::devislist.devislist', ({ str
           Service Option: ${serviceOption}
           Description: ${description}
         `, // Plain text body (fallback)
-        from: 'contact@mhconcept.tn', // Sender email
+        from: 'dg@mhconcept.tn', // Sender email
       });
 
       // Log the success

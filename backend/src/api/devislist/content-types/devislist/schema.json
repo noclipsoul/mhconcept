@@ -21,8 +21,8 @@
     "serviceOption": {
       "type": "enumeration",
       "enum": [
-        "design-conception",
-        "Reamenagement",
+        "Conception-reamenagement",
+        "Permis-de-batir",
         "pilotage-suivi-chantier",
         "Plans-evacuations",
         "Plans-reglementaires"
