@@ -30,19 +30,20 @@ export function Contact({ data }: { readonly data: ContactProps }) {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 pt-8"> {/* Adjusted grid responsiveness */}
           <div className="space-y-4">
+            
             <FontAwesomeIcon icon={faPhone} size="2x" className="mx-auto md:mx-0" /> {/* Centered icon on smaller screens */}
             <h3 className="uppercase text-sm tracking-wider text-gray-600">Tel</h3>
             <p className="text-lg text-gray-600">{telephone}</p>
           </div>
 
           <div className="space-y-4">
-            <FontAwesomeIcon icon={faEnvelopeOpen} size="2x" className="mx-auto md:mx-0" /> {/* Centered icon on smaller screens */}
+            <FontAwesomeIcon icon={faEnvelopeOpen} size="2x"  className="mx-auto md:mx-0" /> {/* Centered icon on smaller screens */}
             <h3 className="uppercase text-sm tracking-wider text-gray-600">Email</h3>
             <p className="text-lg text-gray-600">{email}</p>
           </div>
 
           <div className="space-y-4">
-            <FontAwesomeIcon icon={faLocationDot} size="2x" className="mx-auto md:mx-0" /> {/* Centered icon on smaller screens */}
+            <FontAwesomeIcon icon={faLocationDot} size="2x"  className="mx-auto md:mx-0" /> {/* Centered icon on smaller screens */}
             <h3 className="uppercase text-sm tracking-wider text-gray-600">Adresse</h3>
             <p className="text-lg text-gray-600">{adress}</p>
           </div>

@@ -5,17 +5,17 @@ import { tree } from "next/dist/build/templates/app-page";
 const baseUrl = getStrapiURL();
 
 async function  fetchData(url: string) {
-  const authToken = null; // we will implement this later getAuthToken() later
+ 
   const headers = {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${authToken}`,
+   
     },
   };
 
   try {
-    const response = await fetch(url, authToken ? headers : {});
+    const response = await fetch(url, headers );
     const data = await response.json();
     return data;
   } catch (error) {
@@ -124,6 +124,7 @@ export async function getHomePageData() {
                 },
               },
           },
+         
       },
   });
   
@@ -133,10 +134,11 @@ export async function getHomePageData() {
     const url = new URL("/api/global", baseUrl);
   
     url.search = qs.stringify({
-      fields: ["title", "description"],
+       seo:{
+            populate: '*'
+          },
     });
   
     return await fetchData(url.href);
   }
   
- 
