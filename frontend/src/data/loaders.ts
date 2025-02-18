@@ -134,10 +134,19 @@ export async function getHomePageData() {
     const url = new URL("/api/global", baseUrl);
   
     url.search = qs.stringify({
-       seo:{
-            populate: '*'
+      populate: {
+        seo: {
+          populate: {
+           
+            metaImage: {populate: '*'} 
+            ,     
+            openGraph: {populate: '*'} 
+            ,     
           },
-    });
+        },
+      },
+    }
+  );
   
     return await fetchData(url.href);
   }
