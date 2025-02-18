@@ -192,7 +192,7 @@ export function Header({ data }: Readonly<HeaderProps>) {
                       }
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white bg-white opacity-60 hover:text-gray-300 block"
+                      className="text-white"
                     >
                       <StrapiImage
                         alt={hlinks.icon.alternativeText ?? "no alternative text"}

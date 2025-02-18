@@ -107,7 +107,7 @@ export function Footer({ data }: Readonly<FooterProps>) {
               href={link.url.startsWith('https') ? link.url : `https://${link.url}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-3  bg-white opacity-60 rounded-lg hover:bg-gray-700 transition"
+              className="ml-3  rounded-lg "
             >
               <span className="sr-only">{link.text}</span>
               <StrapiImage

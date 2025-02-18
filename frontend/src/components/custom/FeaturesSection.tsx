@@ -80,7 +80,7 @@ export function FeatureSection({ data }: { readonly data: FeaturesSectionProps }
               {feature.map((featureItem) => (
                 <button
                   key={featureItem.id}
-                  onClick={() => openDialog(featureItem)} className="bg-white rounded-[10%]  shadow-2xl transition-shadow duration-300  p-2 flex flex-col items-center text-center space-y-5 "
+                  onClick={() => openDialog(featureItem)} className="bg-white rounded-t-3xl  rounded-b-3xl  shadow-2xl transition-shadow duration-300  p-2 flex flex-col items-center text-center space-y-5 "
                 >
               
                     <div className="w-16 h-16 sm:w-20 sm:h-20">
